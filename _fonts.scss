@@ -1,0 +1,49 @@
+/* ===================
+|=====================
+|
+|   FONT FAMILIES 
+|   - TABLE OF CONTENTS -
+|   
+|   1.0 - Canaro
+|       1.1 - Canaro SemiBold
+|   2.0 - GeoGrotesque
+|       2.1 - Geogrotesque Regular
+|       2.2 - Geogrotesque Semibold
+|
+|
+|======================
+=====================*/
+
+
+/* === 1.0 CANARO === */
+
+//** 1.1 Canaro SemiBold **//
+@font-face {
+    font-family: 'Canaro SemiBold';
+    src: url('../fonts/canaroSemiBold/f78bcde21d874130c88de04c43f1cda4.woff2') format('woff2'),
+         url('../fonts/canaroSemiBold/f78bcde21d874130c88de04c43f1cda4.woff') format('woff');
+}
+
+
+/* === 2.0 GeoGrotesque === */
+
+//** 2.1 GeoGrotesque Regular **//
+
+@font-face {
+    font-family: 'GeoGrotesque Regular';
+    src: url('../fonts/geoGrotesqueRegular/geogrotesquew01-regular-webfont.woff2') format('woff2'),
+         url('../fonts/geoGrotesqueRegular/geogrotesquew01-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+//** 2.2 GeoGrotesque Regular **//
+@font-face {
+    font-family: 'GeoGrotesque SemiBold';
+    src: url('../fonts/geoGrotesqueRegular/geogrotesquew01-semibold-webfont.woff2') format('woff2'),
+         url('../fonts/geoGrotesqueSemiBold/geogrotesquew01-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

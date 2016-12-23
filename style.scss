@@ -1,0 +1,135 @@
+//Bootstrap Elements
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+//Variables & Mixins
+
+@import "_variables";
+//@import '_mixins';
+//@import '_grid';
+@import "_fonts";
+
+html{
+    font-family: 'Sans-serif, Helvetica';
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: $canaroSemiBold !important;
+}
+
+/* Text Colors */
+.txt{
+    &.txt-white{
+        color:$softWhite;
+    }
+    &.txt-lightBlue{
+        color:$lightBlue;
+    }
+    &.txt-royalblue{
+        color:$royalBlue;
+    }
+    &.txt-charcoal{
+        color:$darkGray;
+    }
+}
+
+/*  Buttons */
+.btn{
+    border-radius: 0px;
+    border: 1px solid $softWhite;
+    &.btn-primary{
+        background: $transparent;
+        &:hover{
+            background: $lightBlue;
+            border:1px solid $transparent;
+        }
+    }
+    
+}
+ /* Top Navigation */
+.navbar{
+    border-radius:0px;
+    border:0px;
+    height:85px;
+    background-color:rgba(0, 0, 0, 0.01);
+    navbar-brand{
+        margin-left:-0px !important;
+    }
+    .navbar-nav{
+        padding-top:10px;
+        a{
+            color: $softWhite;
+            font-family:$geoGrotesqueRegular;
+            &:hover{
+                background:$darkTransparent;
+            }
+        }
+    }
+    
+}
+ /* Parallax */
+.parallax{
+    .title{
+        text-align:center;
+        color: $softWhite;
+    }
+    .subtitle{
+        text-align:center;
+        font-family:$geoGrotesqueRegular;
+        color:$lightBlue;
+    }
+    
+}
+#gContent{
+    margin:0px !important;
+    padding:0px !important;
+}
+ /* gSection */
+.gCTA{
+        background: $darkGray;
+        padding-top:35px;
+        padding-bottom:35px;
+        color: $softWhite;
+}
+ /* Footer */
+.footer{
+    background:$royalBlue;
+    padding-top:25px;
+    padding-bottom:25px;
+}
+
+
+/* Carousel */
+.client_slide{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-25%;
+      }
+      &.right{
+        left:25%;
+      }
+    }
+    .next{
+      left: 25%;
+    }
+    .prev{
+      left: -25%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        // use your favourite prefixer here
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carouse-control{
+    &.left, &.right{
+      background-image: none;
+    }
+  }
+}

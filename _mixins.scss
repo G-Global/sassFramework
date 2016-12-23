@@ -1,0 +1,311 @@
+/*
+====================
+*    MIXINS - Table of Contents
+====================
+| 
+|   1.0 - Grid Framework
+|       1.1 - Make grid columns
+|       1.2 - Float grid columns
+|       1.3 - Calculate grid columns
+|       1.4 - Loop grid columns
+|       1.5 - Make grids
+|   2.0 - Grid System
+|       2.1 - Center containers
+|       2.2 - Create column wrappers
+|       2.3 - Generate extra small columns (xs)
+|           2.3.1 - Set xs offset
+|           2.3.2 - Set xs push
+|           2.3.3 - Set xs pull
+|       2.4 - Generate small columns (sm)
+|           2.4.1 - Set sm offset
+|           2.4.2 - Set sm push
+|           2.4.3 - Set sm pull
+|       2.5 - Generate medium columns (md)
+|           2.5.1 - Set md offset
+|           2.5.2 - Set md push
+|           2.5.3 - Set md pull
+|       2.6 - Generate large columns (lg)
+|           2.6.1 - Set lg offset
+|           2.6.2 - Set lg push
+|           2.6.3 - Set lg pull
+|   3.- Clearfix
+|   4.- Center Block
+====================
+    END Table of Contents
+====================
+*/
+
+
+/* 
+====================
+| 1.0 - GRID FRAMEWORK
+====================
+*/
+
+/* === 1.1 - Make Grid Columns ===*/
+
+@mixin make-grid-columns($i: 1, $list: ".gCol-xs-#{$i}, .gCol-sm-#{$i}, .gCol-md-#{$i}, .gCol-lg-#{$i}"){
+    @for $i from (1 + 1) through $grid-columns {
+        $list: "#{$list}, .gCol-xs-#{$i}, .gCol-sm-#{$i}, .gCol-md-#{$i}, .gCol-lg-#{$i}";
+    }
+    #{$list} {
+        position: relative;
+        min-height: 1px; //prevent collapse when empty
+        padding-left: ceil(($grid-gutter-width / 2));
+        padding-right: floor(($grid-gutter-width / 2));
+    }
+}
+
+/* === 1.2 - Float Grid Columns ===*/
+
+@mixin float-grid-columns($class, $i:1, $list: ".gCol-#{$class}-#{$i}"){
+    @for $i from (1 + 1) through $grid-columns{
+        $list: "#{$list}, .gCol-#{$class}-#{$i}";
+    }
+    #{$list} {
+        float: left;
+    }
+}
+
+/* === 1.3 - Calculate Grid Columns ===*/
+
+@mixin calc-grid-column($index, $class, $type) {
+    
+    @if($type == width) and ($index > 0) {
+        .gCol-#{$class}-#{$index} {
+            width: percentage(($index / $grid-columns));
+        }
+    }
+    
+    @if($type == push) and ($index > 0) {
+        .gCol-#{$class}-#{$index} {
+            left: percentage(($index / $grid-columns));    
+        }    
+    }
+    
+    @if($type == push) and ($index == 0) {
+        .gCol-#{$class}-#{$index} {
+            left:auto;
+        }    
+    }
+
+    @if($type == pull) and ($index > 0) {
+        .gCol-#{$class}-#{$index} {
+            right: percentage(($index / $grid-columns));
+        }    
+    }
+    
+    @if($type == pull) and ($index == 0) {
+        .gCol-#{$class}-#{$index} {
+            right:auto;
+        }
+    }
+    
+    @if($type == offset) {
+        .gCol-#{$class}-offset-#{$index}{
+            margin-left: percentage(($index / $grid-columns));
+        }
+    }
+
+}
+
+/* === 1.4 - Loop Grid Columns ===*/
+
+@mixin loop-grid-columns($columns, $class, $type) {
+    @for $i from 0 through $columns {
+        @include calc-grid-column($i, $class, $type);
+    }
+}
+
+/* === 1.5 - Make Grid ===*/
+
+@mixin make-grid($class){
+    
+    @include float-grid-columns($class);
+    
+    @include loop-grid-columns($grid-columns, $class, width);
+    
+    @include loop-grid-columns($grid-columns, $class, pull);
+    
+    @include loop-grid-columns($grid-columns, $class, push);
+    
+    @include loop-grid-columns($grid-columns, $class, offset);
+    
+}
+
+/* 
+====================
+| 2.0 - GRID SYSTEM
+====================
+*/
+
+/* === 2.1 - Center containers === */
+@mixin container-fixed($gutter: $grid-gutter-width){
+    margin-right: auto;
+    margin-left:auto;
+    padding-left: floor(($gutter / 2));
+    padding-right: ceil(($gutter / 2));
+    @include clearfix;
+}
+
+/* === 2.2 - Create wrapper for columns === */
+@mixin make-row($gutter: $grid-gutter-width){
+    margin-left: ceil(($gutter / -2));
+    margin-right: floor(($gutter / -2));
+    @include clearfix;
+}
+
+/* === 2.3 Create extra small columns === */
+@mixin make-xs-column($columns, $gutter: $grid-gutter-width) {
+    position:relative;
+    float: left;
+    width: percentage(($columns / $grid-columns));
+    min-height: 1px;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+}
+
+/* === 2.3.1 Set xs column offset === */
+@mixin make-xs-column-offset($columns) {
+    margin-left: percentage(($columns / $grid-columns));
+}
+
+/* === 2.3.2 Set xs column push === */
+@mixin make-xs-column-push($column){
+    left: percentage(($columns / $grid-columns));
+}
+/* === 2.3.3 Set xs column pull === */
+@mixin make-xs-column-pull($column) {
+    right: percentage(($columns / $grid-columns));
+}
+
+/* === 2.4 Generate small columns === */
+@mixin make-sm-column($columns, $gutter: $grid-gutter-width){
+    position:relative;
+    min-height: 1px;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+    
+    @media (min-width: $screen-sm-min) {
+        float: left;
+        width: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.4.1 Set sm column offset === */
+@mixin make-sm-column-offset($columns){
+    @media (min-width: $screen-sm-min){
+        margin-left: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.4.2 Set sm column push === */
+@mixin make-sm-column-push($columns){
+    @media (min-width: $screen-sm-min){
+        left: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.4.3 Set sm columns pull === */
+@mixin make-sm-column-pull($columns){
+    @media (min-width: $screen-sm-width){
+        right: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.5 Generate medium columns === */
+@mixin make-md-column($columns, $gutter: $grid-columns){
+    position:relative;
+    min-height: 1px;
+    padding-left: ($guttter / 2);
+    padding-right: ($gutter / 2);
+    @media (min-width: $screen-md-min){
+        float:left;
+        width: percentage(($columns / $grid-columns))
+    }
+}
+
+/* === 2.5.1 Set md columns offset === */
+@mixin make-md-column-offset($columns){
+    @media (min-width: $screen-md-min){
+        margin-left: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.5.2 Set md columns push === */
+@mixin make-md-column-push($columns){
+    @media(min-width: $screen-md-min){
+        left: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.5.3 Set md columns pull === */
+@mixin make-md-column-pull($columns){
+    @media (min-width: $screen-md-min){
+        right: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.6 Generate large columns === */
+@mixin make-lg-column($columns, $gutter: $grid-columns){
+    position:relative;
+    min-height: 1px;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+    @media (min-width: $screen-lg-min){
+        float:left;
+        width: percentage(($columns / $grid-columns))
+    }
+}
+
+/* === 2.6.1 Set lg columns offset === */
+@mixin make-lg-column-offset($columns){
+    @media (min-width: $screen-lg-min){
+        margin-left: percentage(($columns / $grid-columns));
+    }
+}
+
+/* === 2.6.2 Set lg columns push === */
+@mixin make-lg-column-push($columns){
+    @media (min-width: $screen-lg-min){
+        left: percentage(($columns / $grid-columns));
+    }
+}
+
+/*=== 2.6.3 Set lg columns pull === */
+@mixin make-lg-columns-pull($columns){
+    @media (min-width: $screen-lg-min){
+        right: percentage(($columns / $grid-columns));
+    }
+}
+
+
+
+/* 
+====================
+| 3.0 - ClearFix
+====================
+*/
+
+@mixin clearfix(){
+    &:before,
+    &:after {
+        content: " ";
+        display:table;
+    }
+    &:after{
+        clear:both
+    }
+}
+
+/* 
+====================
+| 4.0 - Center Block
+====================
+*/
+@mixin center-block(){
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+}
+

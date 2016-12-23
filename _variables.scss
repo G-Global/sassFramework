@@ -1,0 +1,176 @@
+/*================================
+|   VARIABLES - Table of Contents
+|=================================
+| 
+|   1.0 - Branding
+|       1.1 - Colors
+|       1.2 - Font Family
+|   2.0 - Layout
+|       2.1 - Breakpoints
+|       2.2 - Grids
+|       2.3 - Container Sizes
+|
+|=================================
+|===============================/*
+
+
+/*====================
+|   1.0 BRANDING
+====================*/
+
+/* ===================*/
+/* === 1.1 Colors === */
+/* ===================*/
+
+//Full White
+$white :#fff;
+//Soft White
+$softWhite:#dbd9d9;
+
+//Transparent
+$transparent: rgba(255, 255, 255, 0);
+//Light Transparent
+$lightTransparent: rgba(255, 255, 255, 0.1);
+//Dark Transparent
+$darkTransparent: rgba(0, 0, 0, 0.1);
+
+//Dark Blue
+$darkBlue:#081f75;
+//Royal Blue
+$royalBlue:#003ecb;
+//Light Blue
+$lightBlue:#0069ff;
+
+//Accent Yellow
+$accentYellow:#fff100;
+
+
+//Full Black
+$black:#000;
+//Charcoal
+$darkGray:#2b2b2b;
+//LightGray
+$lightGray:#494949;
+
+/*** Alerts ***/
+
+//Success Green
+$success :#61d835;
+
+//Warning Orange/Yelow
+$warning :#ffb000;
+
+//Danger Red / Magenta
+$alert :#f7345e;
+
+/* ========================*/
+/* === 1.2 Font Family === */
+/* ========================*/
+
+$pathToFonts: './app/assets/fonts/';
+
+/*** CANARO ***/
+
+//Regular
+$canaroRegular: 'Canaro Regular';
+
+//Light
+$canaroLight: 'Canaro Light';
+
+//Semibold
+$canaroSemiBold: 'Canaro SemiBold';
+
+//Bold
+$canaroBold:'Canaro Bold';
+
+/*** GEOGROTESQUE ***/
+
+//Regular
+$geoGrotesqueRegular:'GeoGrotesque Regular';
+//SemiBold
+$geoGrotesqueSemiBold:'GeoGrotesque SemiBold';
+
+
+/*====================
+|   2.0 LAYOUT
+====================*/
+
+/* =======================*/
+/* === 2.1 BreakPoints ===*/
+/* =======================*/
+
+
+/* === 2.1.1 Minimum === */
+
+//Extra Small screens
+$screen-xs: 480px;
+$screen-xs-min: $screen-xs;
+$screen-mobile: $screen-xs-min;
+
+//Small screens
+$screen-sm: 768px;
+$screen-sm-min: $screen-sm;
+$screen-tablet: $screen-sm-min;
+
+//Medium Screens
+$screen-md: 992px;
+$screen-md-min: $screen-md;
+$screen-desktop: $screen-md-min;
+
+//Large Screens
+$screen-lg: 1200px;
+$screen-lg-min: $screen-lg;
+$screen-lg-desktop: $screen-lg-min;
+
+
+/* === 2.1.2 Maximum === */
+
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+
+/* ==================*/
+/* === 2.2 Grids === */
+/* ==================*/
+
+//Number of columns
+$grid-columns: 12;
+
+//Maximun width of grid
+$grid-max-width: 100%;
+
+//Grid pipe width
+$grid-pipe-width: 30px;
+
+//Grid collapse at
+$grid-float-breakpoint: $screen-sm-min;
+
+//Grid max breakpoint
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1); 
+
+
+/* ============================*/
+/* === 2.3 Container Sizes === */
+/* ============================*/
+
+//Small screens
+$gContainer-tablet: (720px + $grid-pipe-width);
+
+//Small screens and up
+$gContainer-sm: $gContainer-tablet;
+
+//Medium screens
+$gContainer-desktop: (940px + $grid-pipe-width);
+
+//Medium screens and up
+$gContainer-md: $gContainer-desktop;
+
+//Large Screens
+$gContainer-large-desktop: (1140px + $grid-pipe-width);
+    
+//Large screens and up
+$gContainer-lg: $gContainer-large-desktop;
+
+
+

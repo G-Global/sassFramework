@@ -1,0 +1,95 @@
+/*  gGLOBAL GRID SYSTEM
+====================
+|
+|   1.- Containers (gContainer)
+|   2.- Fluid Containers (gContainerFluid)
+|   3.- Rows
+|   4.- Columns
+|   5.- Grids
+|       5.1 - xs Grid (extra small) / mobile
+|       5.2 - sm Grid (small) / tablets
+|       5.3 - md Grid (medium) / medium desktop
+|       5.4 - lg Grid (large) / full desktop
+|
+====================
+*/
+
+
+
+/*
+====================
+1.- Containers / .gContainers
+====================
+*/
+
+.gContainer{
+    @include container-fixed;
+    
+    @media (min-width: $screen-sm-min){
+        width: $gContainer-sm;
+    }
+    
+    @media (min-width: $screen-md-min){
+        width: $gContainer-md;
+    }
+    
+    @media (min-width: $screen-lg-min){
+        width: $gContainer-lg;
+    }
+}
+
+/*
+====================
+| 2.- Fluid Containers / .gContainerFluid
+====================
+*/
+
+.gContainerFluid{
+    @include container-fixed;
+}
+
+
+/*
+====================
+| 3.- Rows / .gRows
+====================
+*/
+
+.gRow{
+    @include make-row;
+}
+
+
+/*
+===================
+| 4.- Columns / .gColumn
+===================
+*/
+
+@include make-grid-columns;
+
+
+/*
+===================
+| 5.- Grids
+|   - Columns, offset, pushes and pulls
+===================
+*/
+
+// - 5.1 Extra small grid - mobile
+@include make-grid(xs);
+
+// - 5.2 Small grid - tablets
+@media (min-width: $screen-sm-min){
+    @include make-grid(sm);
+}
+
+// - 5.3 Medium Grid - desktop
+@media (min-width: $screen-md-min){
+    @include make-grid(md);
+}
+
+// - 5.4 Large grid - desktop
+@media (min-width: $screen-lg-min){
+    @include make-grid(lg);
+}
