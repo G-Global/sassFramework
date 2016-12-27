@@ -1,6 +1,8 @@
 //Bootstrap Elements
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+@import "bower_components/animate-sass/_animate";
+
 //Variables & Mixins
 
 @import "_variables";
@@ -8,12 +10,22 @@
 //@import '_grid';
 @import "_fonts";
 
-html{
-    font-family: 'Sans-serif, Helvetica';
+html, body{
+    font-family: $geoGrotesqueRegular;
+}
+
+body{
+    background:$darkGray;
 }
 
 h1, h2, h3, h4, h5, h6{
     font-family: $canaroSemiBold !important;
+}
+
+.wrapper{
+    height:auto;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* Text Colors */
@@ -29,6 +41,15 @@ h1, h2, h3, h4, h5, h6{
     }
     &.txt-charcoal{
         color:$darkGray;
+    }
+    &.txt-sm{
+        font-size:1em;
+    }
+    &.txt-md{
+        font-size:3em;
+    }
+    &.txt-lg{
+        font-size:5em;
     }
 }
 
@@ -51,6 +72,7 @@ h1, h2, h3, h4, h5, h6{
     border:0px;
     height:85px;
     background-color:rgba(0, 0, 0, 0.01);
+    transition: 0.3s;
     navbar-brand{
         margin-left:-0px !important;
     }
@@ -64,20 +86,32 @@ h1, h2, h3, h4, h5, h6{
             }
         }
     }
+    &.navbar-scroll{
+        background-color: rgba(50,50,50, 0.5);
+        transition: 0.3s;
+    }
     
 }
  /* Parallax */
 .parallax{
+    height: auto;
+    padding-top:50px;
+    padding-bottom:50px;
+    
     .title{
         text-align:center;
         color: $softWhite;
     }
     .subtitle{
         text-align:center;
+        font-size: 16px;
         font-family:$geoGrotesqueRegular;
         color:$lightBlue;
     }
-    
+    .scroller{
+        bottom:0%;
+        width:50px;
+    }
 }
 #gContent{
     margin:0px !important;
@@ -132,4 +166,255 @@ h1, h2, h3, h4, h5, h6{
       background-image: none;
     }
   }
+}
+
+
+
+/*
+===================
+| INFOGRAFIA
+==================
+*/
+
+.infografia {
+    min-height: 4200px;
+    height: 5221px;
+    position: relative;
+    z-index: 2;
+    padding-top:50px;
+    overflow: hidden;
+    .svgTitle{
+        position: fixed;
+        width: 130vw;
+        top: 25%;
+        right: 14%;
+        z-index: -4;
+    }
+    .group{
+        font-family: $canaroBook;
+    }
+    .infografia_ruta{
+        position:relative;
+        z-index: 2;
+    }
+    .infografia_ruta_header{
+        position: relative;
+        max-width: 317px;
+        margin-bottom:7rem;
+        z-index: 3;
+        h1{
+            font-size:37px;
+            color:$softWhite;
+        }
+    }
+    #infoSVG {
+        position: relative;
+        z-index: 2;
+        width: 3200px;
+        padding: 23px 0;
+    }
+
+}
+/*.infografia:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 58px;
+    background-color: #FFFFFF;
+}
+*/
+.infografia .infografia_ruta {
+    position: relative;
+    z-index: 2;
+}
+.infografia .infografia_ruta_header {
+    position: relative;
+    max-width: 317px;
+    margin-bottom: 7rem;
+    z-index: 3;
+}
+.infografia .infografia_ruta_header> h1{
+    font-size: 37px;
+    color: #fff;
+}
+.clientes {
+    position: relative;
+    z-index: 5;
+    background: #fff;
+}
+.img_parallax_bg.left {
+    left: -20px;
+}
+
+
+/** SVG ANIMACION **/
+#infoSVG {
+    position: relative;
+    z-index: 2;
+    width: 3200px;
+    padding: 23px 0;
+}
+
+.st0 {
+    fill: #081F75;
+    stroke: #231F20;
+    stroke-miterlimit: 10;
+}
+.st1 {fill: #FFFFFF;}
+.st3 {
+    font-family: $canaroSemiBold;
+    font-size: 32px;
+}
+.st4{
+    font-family: $canaroSemiBold;
+    font-size: 70px;
+    letter-spacing: 4px;
+}
+.st5 {font-size: 60px;}
+.st6 {
+    font-family: $canaroSemiBold;
+    font-size: 18px;
+    fill: #fff;
+    stroke-width: 0;
+}
+.st7 {
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-miterlimit: 10;
+}
+.st8 {fill: #1C378C;}
+.st9 {fill: #FFF100;}
+.st10 {fill: #081F75;}
+.st11 {
+    font-family: $canaroLight;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #003ECB;
+    font-size: 14px;
+}
+.st12{
+    font-size: 55px;
+}
+
+
+.svg_btn {
+    cursor: pointer;
+}
+
+
+/** ANIMATION **/
+@keyframes sprite-truck {
+    100% {  background-position: -390px; }
+}
+@keyframes sprite-rule {
+    100% {  background-position: -325px; }
+}
+@keyframes sprite-doc {
+    100% {  background-position: -454.91px; }
+}
+
+.truck {
+    width: 65.66px;
+    height: 60px;
+    display: block;
+    background-image: url("../imgs/icns/camion.png");
+    animation: sprite-truck 1s steps(6) infinite;
+}
+.rule {
+    width: 64px;
+    height: 60px;
+    display: block;
+    background-image: url("../imgs/icns/rule.png");
+    animation: sprite-rule 1s steps(5) infinite;
+}
+.text-format{
+    font-family: $canaroSemiBold;
+    font-size: 18px;
+    color: #fff;
+}
+.doc {
+    width: 65.71px;
+    height: 60px;
+    display: block;
+    background-image: url("../imgs/icns/doc.png");
+    animation: sprite-doc 1s steps(7) infinite;
+}
+.group{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -ms-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+.group > *{
+    display: inline-block;
+}
+.group span{
+    vertical-align: top;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+.group span.count{
+    position: absolute;
+    display: block;
+    left: 50%;
+    margin-top: 50px;
+    font-family: $canaroSemiBold;
+    font-size: 60px;
+    letter-spacing: 3px;
+    transform: translate(-50%);
+}
+.group span.count:after{
+    content: "";
+    display: block;
+    position: absolute;
+    right: 7px;
+    bottom: 5px;
+    width: 55px;
+    border-top: 5px solid #fff100;
+}
+.orders{
+    left: 46%;
+}
+.shippers span{
+    margin-top: 18px;
+}
+.warehouse span.count:before{
+    content: "ft";
+    display: block;
+    position: absolute;
+    right: -30px;
+    top: 5px;
+    font-size: 30px;
+}
+.deliveries span{
+    margin-top: 20px;
+}
+
+svg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+@keyframes blink-circle {
+  0%   {stroke-width: 0}
+  50%  {stroke-width: 1}
+  100% {stroke-width: 0}
+}
+svg circle{
+    cursor: pointer;
+    transition: all ease 1s;
+    animation: blink-circle 2s linear infinite;
+}
+svg circle.active{
+    stroke: #FFF100;
+    stroke-width: 2px;
+    animation: none;
 }
