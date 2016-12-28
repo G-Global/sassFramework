@@ -12,6 +12,7 @@
 
 html, body{
     font-family: $geoGrotesqueRegular;
+    
 }
 
 body{
@@ -87,7 +88,7 @@ h1, h2, h3, h4, h5, h6{
         }
     }
     &.navbar-scroll{
-        background-color: rgba(50,50,50, 0.5);
+        background-color: rgba(50,50,50, 0.85);
         transition: 0.3s;
     }
     
@@ -97,6 +98,9 @@ h1, h2, h3, h4, h5, h6{
     height: auto;
     padding-top:50px;
     padding-bottom:50px;
+    &.offsetBG{
+        background-color:rgba(255,255,255,0.7);
+    }
     
     .title{
         text-align:center;
@@ -177,10 +181,10 @@ h1, h2, h3, h4, h5, h6{
 */
 
 .infografia {
-    min-height: 4200px;
-    height:5400px;
+    //min-height: 4325px;
+    //height:5221px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     padding-top:50px;
     overflow: hidden;
     .svgTitle{
@@ -193,14 +197,9 @@ h1, h2, h3, h4, h5, h6{
     &:before{
         content: " ";
         width:100%;
-        position:relative;
-        height:1px;
-    }
-    &:after{
-        content: " ";
-        clear: both;
-        position:relative;
-        
+        position:absolute;
+        height:100px;
+        top:0;
     }
     .group{
         font-family: $canaroSemiBold;
@@ -213,7 +212,7 @@ h1, h2, h3, h4, h5, h6{
         position: relative;
         max-width: 317px;
         margin-bottom:7rem;
-        //z-index: 3;
+        z-index: 3;
         h1{
             font-size:37px;
             color:$softWhite;
@@ -221,8 +220,8 @@ h1, h2, h3, h4, h5, h6{
     }
     #infoSVG {
         position: relative;
-        //z-index: 2;
-        width: 3200px;
+        z-index: 2;
+        min-width: 100%;
         padding: 23px 0;
     }
 
@@ -405,7 +404,7 @@ h1, h2, h3, h4, h5, h6{
     font-size: 30px;
 }
 .deliveries span{
-    margin-top: 20px;
+    //margin-top: 20px;
 }
 
 svg{
@@ -414,6 +413,9 @@ svg{
     height: 100%;
     top: 0;
     left: 0;
+}
+svg:not(:root){
+    overflow: hidden;
 }
 
 @keyframes blink-circle {
