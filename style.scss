@@ -1,14 +1,62 @@
+/* ======================
+|   - TABLE OF CONTENTS -
+|========================
+|   
+|   STYLESHEET
+| 
+|   1.0 - DEPENDENCIES
+|       1.1 - Bootstrap Elements
+|
+|   2.0 - G-GLOBAL FRAMEWORK
+|       2.1 - Variables
+|       2.2 - Mixins
+|       2.3 - Animations
+|       2.4 - Fonts
+|
+|   3.0 - ELEMENTS
+|       3.1 - 
+|           3.1.1 - Buttons
+|           3.1.2 - Text
+|           3.1.3 - Navbar
+|       3.2 - Sections
+|           3.2.1 - Intro
+|           3.2.2 - Infographic
+|
+|=================================
+|===============================*/
+
+
+
+/*====================
+|   1.0 DEPENDENCIES
+====================*/
+
 //Bootstrap Elements
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
 
-@import "bower_components/animate-sass/_animate";
+@import "bower_components/font-awesome/scss/font-awesome";
 
-//Variables & Mixins
+/*==========================
+|   2.0 G-GLOBAL FRAMEWORK
+===========================*/
+
 
 @import "_variables";
-//@import '_mixins';
+@import '_mixins';
+@import "_animations";
 //@import '_grid';
 @import "_fonts";
+
+
+
+/*==========================
+|   3.0 STYLING 
+===========================*/
+
+
+/* ========================= */
+/* === 3.1.1 Html - Body === */
+/* ========================= */
 
 html, body{
     font-family: $geoGrotesqueRegular;
@@ -19,51 +67,137 @@ body{
     background:$deepCharcoal;
 }
 
+/* ======================  */
+/* === 3.1.2 Headings  ==  */
+/* ======================  */
+
 h1, h2, h3, h4, h5, h6{
-    font-family: $canaroSemiBold !important;
+    font-family: $canaroSemiBold;
 }
+
+/* ==========================  */
+/* === 3.1.2 Main Wrapper  ==  */
+/* ==========================  */
 
 .wrapper{
     height:auto;
     width: 100%;
     overflow: hidden;
+    opacity: 0;
+    transition: 0.7s;
+    visibility: hidden;
+}
+
+/* =================  */
+/* === 3.1.3 Loader ==  */
+/* =================  */
+
+.loader{
+    width:100%;
+    height:100%;
+    background-color:$deepCharcoal;
+    z-index: 1000;
+    top:0;
+    opacity: 0.95;
+    position:fixed;
+    padding-top:15%;
+    padding-bottom:25%;
+    padding-left:47%;
+    transition: 0.7s;
+    color:$white;
+}
+
+/* ======================  */
+/* === 3.1.2 Scroller  ==  */
+/* ======================  */
+
+.scroller{
+    bottom:7%;
+    right:5%;
+    position:fixed;
+    transition: 0.7s;
+    z-index: 3;
+    .toTop{
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        transition: 1s;
+        content: "^";
+        background: $globalBlue;
+        width:$widthMouse;
+        background-size: 225%;
+        height: $heightMouse;
+        border-radius: 100px;
+        @include animation(nudgeMouse $animDuration ease-out infinite);
+        z-index: 9;
+            
+    }    
+    .mouse {
+        @include bgGradient($colorOutlineFade, $colorOutline);
+        position: relative;
+        width: $widthMouse;
+        height: $heightMouse;
+        transition:0.7s;
+        background-size: 100% 100%;
+        border-radius: 100px;
+        background-size: 225%;
+        @include animation(colorSlide $animDuration linear infinite);
+        @include animation(nudgeMouse $animDuration ease-out infinite);
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0; 
+            right: 0; 
+            bottom: 0; 
+            left: 0;
+            margin: auto;
+        }
+        &:before {
+            width: $widthMouse - $borderMouse;
+            height: $heightMouse - $borderMouse;
+            background-color: $colorBg;
+            border-radius: 100px;
+        }
+        &:after {
+            background-color: $colorOutline;
+            width: $sizeTrackball;
+            height: $sizeTrackball;
+            border-radius: 100%;
+            @include animation(trackBallSlide $animDuration linear infinite);
+        }
+        &.top{
+            width: 50px;
+            transition:0.5s;
+            height:50px;
+            padding-top:1px;
+            padding-left:16px;
+            background: $globalBlue;
+            &:before{
+                width:0px;
+                height:0px;
+                background:$transparent;
+            }
+            &:after{
+                border-radius:0px;
+                animation:none;
+                position:relative;
+                content: "\f0d8";
+                font-size:3rem;
+                color:$white;
+                background:$transparent;
+                font-family: FontAwesome;
+            }    
+        }
+    }
+
 }
 
 
-hr{
-    &.yellowBrick{
-        border-top:3px solid $brightSunrise;
-        width:10%;
-    }
-}
+/* =================== */
+/* === 3.1 Buttons === */
+/* =================== */
 
-
-/* Text Colors */
-.txt{
-    &.txt-white{
-        color:$softWhite;
-    }
-    &.txt-lightBlue{
-        color:$globalBlue;
-    }
-    &.txt-royalblue{
-        color:$indigo;
-    }
-    &.txt-charcoal{
-        color:$deepCharcoal;
-    }
-    &.txt-sm{
-        font-size:1em;
-    }
-    &.txt-md{
-        font-size:3em;
-    }
-    &.txt-lg{
-        font-size:5em;
-    }
-}
-
-/*  Buttons */
 .btn{
     border-radius: 0px;
     border: 1px solid $softWhite;
@@ -76,15 +210,120 @@ hr{
     }
     
 }
- /* Top Navigation */
+
+/* ===================== */
+/* === 3.1 HR Lines ==== */
+/* ===================== */
+
+$hrColor: $brightSunrise;
+
+hr{
+    &.yellowBrick{
+        border-top:3px solid $hrColor;
+        width:10%;
+        margin-top:10px;
+        margin-bottom:10px;
+    }
+}
+
+/* =================== */
+/* === 3.1 Text  ===== */
+/* =================== */
+
+.txt{
+    &.white{
+        color:$softWhite;
+    }
+    &.lightBlue{
+        color:$globalBlue;
+    }
+    &.royalblue{
+        color:$indigo;
+    }
+    &.charcoal{
+        color:$deepCharcoal;
+    }
+    &.sm{
+        font-size:1.5em;
+    }
+    &.md{
+        font-size:2em;
+    }
+    &.lg{
+        font-size:3em;
+    }
+    &.book{
+        font-family: $canaroBook;
+    }
+    &.semibold{
+        font-family: $canaroSemiBold;
+    }
+}
+
+/*
+====================
+|   3.2 SECTIONS
+====================
+*/
+
+/* =================== */
+/* === 3.1 INTRO === */
+/* =================== */
+
+.intro{
+    .copy{
+        position:absolute;
+        bottom: 0%;
+        padding-left:7%;
+        width:100%;
+        padding-top:3%;
+        padding-right:7%;
+        padding-bottom:3%;
+        background:rgba(255,255,255,0.02);
+        
+    }
+    .title{
+        font-size: 4rem;
+        color: $softWhite;
+    }
+    .subtitle{
+        font-size: 2rem;
+        font-family:$geoGrotesqueRegular;
+        color:$globalBlue;
+    }
+    .diag{
+        width: 0;
+        height: 0;
+        position:absolute;
+        right:0%;
+        border-style: solid;
+        border-width: 0 650px 400px 0;
+        border-color: transparent $globalBlue-mid transparent transparent;
+        line-height: 0px;
+        _border-color: $transparent $globalBlue-mid $transparent $transparent;
+        _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+    }
+}
+
+
+
+
+
+/* =================== */
+/* === 3.1 Navbar ===  */
+/* =================== */
+
 .navbar{
     border-radius:0px;
     border:0px;
     height:85px;
-    background-color:rgba(0, 0, 0, 0.01);
     transition: 0.3s;
     navbar-brand{
         margin-left:-0px !important;
+    }
+    &.navbar-collapse{
+        @include transparent(rgba($deepCharcoal, 0.95), $deepCharcoal);
+        border-top:0px;
     }
     .navbar-nav{
         padding-top:20px;
@@ -95,61 +334,134 @@ hr{
             &:hover{
                 background:$darkTransparent;
             }
+            &:active{
+                background:$globalBlue;
+            }
+            &:visited{
+                background:$globalBlue;
+            }
         }
     }
     &.navbar-scroll{
-        background-color: rgba(50,50,50, 0.85);
+        @include transparent(rgba($deepCharcoal, 0.85), $deepCharcoal);
         transition: 0.3s;
     }
+    .lang{
+        position: absolute;
+        top:25px;
+    }
     
 }
- /* Parallax */
+/* ===================  */
+/* === 3.1 Parallax ==  */
+/* ===================  */
 .parallax{
     height: auto;
-    padding-top:50px;
-    padding-bottom:50px;
+    overflow: hidden;
     &.offsetBG{
-        background-color:rgba(255,255,255,0.7);
-    }
-    
-    .title{
-        text-align:center;
-        color: $softWhite;
-    }
-    .subtitle{
-        text-align:center;
-        font-size: 16px;
-        font-family:$geoGrotesqueRegular;
-        color:$globalBlue;
-    }
-    .scroller{
-        bottom:0%;
-        width:50px;
+        background-color:rgba(255,255,255,0.45);
+        padding-top:50px;
+        padding-bottom:50px;
     }
 }
+
+
+/* ===================  */
+/* === 3.1 Cards ==  */
+/* ===================  */
+
+.locations{
+    .card{
+        .card-body{
+            .title{
+                text-align: center;
+                font-size: x-large;
+            }
+            .info{
+                text-align: center;
+            }
+            .location{
+                display: none;
+                transition: 0.3s;
+                font-size: 13px;
+                text-align: center;
+                button{
+                    margin-top:25px;
+                }
+            }
+            min-height:270px;
+            padding-top:20%;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: $white;
+            font-family: $canaroBook;
+            transition: 0.3s;
+            &:hover{
+                font-size:large;
+                padding-top:10%;
+                .location{
+                    display: block;
+                }
+            }
+        }
+        &.odd{
+            @include transparent(rgba($white, 0.25), $white)
+                }
+        &.even{
+            @include transparent(rgba($white, 0.35), $white)
+                }
+        &:hover{
+            @include transparent(rgba($globalBlue, 0.45), $globalBlue)
+        }
+    }
+
+}
+
+
+/* =========================  */
+/* === 3.1 Main Content ====  */
+/* =========================  */
+
+
 #gContent{
     margin:0px !important;
     padding:0px !important;
 }
- /* gSection */
+
+/* =========================  */
+/* === 3.1 Call to Action ==  */
+/* =========================  */
+
 .gCTA{
-        background-color: $deepCharcoal;
-        background-image: url('../imgs/bgs/bar.jpg');
-        background-position:center;
-        background-size:cover;
-        padding-top:35px;
-        padding-bottom:35px;
-        color: $softWhite;
+    background-color: $darkTransparent;
+    background-position:center;
+    background-size:cover;
+    padding-top:35px;
+    padding-bottom:35px;
+    color: $softWhite;
+    .phones{
+        margin-top:25px;
+    }
 }
- /* Footer */
+
+/* ===================  */
+/* === 3.1 Footer ====  */
+/* ===================  */
+
 .footer{
     background:$indigo;
+    color:$white;
     padding-top:25px;
     padding-bottom:25px;
+    .footerLogo{
+        margin-top: 50px;
+    }
 }
 
 
-/* Carousel */
+/* ===================  */
+/* === 3.1 Carousel ==  */
+/* ===================  */
 .client_slide{
   .carousel-inner{
     > .item{
@@ -187,15 +499,19 @@ hr{
 
 
 
-/*
-===================
-| INFOGRAFIA
-==================
-*/
+/* ======================  */
+/* === 3.1 Infographic ==  */
+/* ======================  */
+
+$routeColor: $indigo;
+
 
 .infografia {
-    min-height: 4325px;
-    height:5500px;
+    min-height: 1350px;
+    background-image:url('../imgs/bgs/gG_bg1.jpg');
+    background-attachment: fixed;
+    background-repeat:no-repeat;
+    height:4200px;
     position: relative;
     z-index: 1;
     padding-top:50px;
@@ -203,9 +519,10 @@ hr{
     .svgTitle{
         position: fixed;
         width: 130vw;
-        top: 25%;
+        top: 50%;
         right: 14%;
         z-index: -1;
+        visibility: hidden;
     }
     &:before{
         content: " ";
@@ -214,16 +531,136 @@ hr{
         height:100px;
         top:0;
     }
+    .text{
+        font-family:$canaroBook;
+        fill:$white ;
+        stroke-width:0;
+        &.lg{
+            font-size:27px;
+            font-family: $canaroSemiBold;
+        }
+        &.md{
+            font-size:18px;
+        }
+        &.sm{
+            font-size:15px;
+        }
+    
+    }
+    .line{
+        stroke:none;
+        stroke-miterlimit: 10;
+        &.cover{
+            fill:$routeColor;
+        }
+        &.fill{
+            fill:$white;
+        }
+    }
+    .dot{
+        stroke-miterlimit: 10;
+        @include animation(blink-circle 2s linear infinite);
+        &.cover{
+            fill:none;
+            stroke:$white;
+        }
+        &.fill{
+            fill:$white;
+        }
+    }
     .group{
         font-family: $canaroBook;
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -ms-transition: opacity 1s ease-in-out;
+        -o-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+        &.orders{
+            .doc{
+                width: 65.71px;
+                height: 60px;
+                display: block;
+                background-image: url("../imgs/icns/doc.png");
+                @include animation(sprite-doc 2s steps(7) infinite);
+            }
+            .count{}
+            span{}
+        }
+        &.shippers{
+            .doc {
+                width: 65.71px;
+                height: 60px;
+                display: block;
+                background-image: url("../imgs/icns/doc.png");
+                @include animation(sprite-doc 2s steps(7) infinite);
+            }
+            .count{}
+            span{
+                margin-top: 18px;
+            }
+        }
+        &.warehouse{
+            .rule {
+                width: 64px;
+                height: 60px;
+                display: block;
+                background-image: url("../imgs/icns/rule.png");
+                @include animation(sprite-rule 2s steps(5) infinite);
+            }
+            .count{
+                &:before{
+                    content: "ft";
+                    display: block;
+                    position: absolute;
+                    right: -30px;
+                    top: 5px;
+                    font-size: 30px;
+                }
+            }
+            span{}
+        }
+        &.deliveries{
+            .truck {
+                width: 65.66px;
+                height: 60px;
+                display: block;
+                background-image: url("../imgs/icns/camion.png");
+                @include animation(sprite-truck 2s steps(6) infinite);
+            }
+            .count{}
+            span{}
+        }
+        
+        span{
+            vertical-align: top;
+            margin-top: 4px;
+            margin-left: 10px;
+        }
+        .count{
+            position: absolute;
+            display: block;
+            left: 50%;
+            margin-top:0px;
+            font-family: $canaroSemiBold;
+            font-size: 60px;
+            letter-spacing: 3px;
+            transform: translate(-50%);
+            &:after{
+                content: "";
+                display: block;
+                position: absolute;
+                right: 7px;
+                bottom: 5px;
+                width: 55px;
+                border-top: 5px solid $brightSunrise;
+            }
+        }
     }
-    //.infografia_ruta{
-    //    position:relative;
-    //    z-index: 2;
-    //}
     .header{
         position: relative;
-        //max-width: 317px;
         margin-bottom:7rem;
         z-index: 3;
         h1{
@@ -237,171 +674,31 @@ hr{
         min-width: 100%;
         padding: 23px 0;
     }
-
+    .text-format{
+        font-family: $canaroBook;
+        font-size: 18px;
+        color: $white;
+    }
+    
+    svg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        &:not(:root){
+            overflow: hidden;
+        }
+        .circle{
+            cursor: pointer;
+            transition: all ease 1s;
+            @include animation(blink-circle 2s linear infinite);
+            .active{
+                stroke: $brightSunrise;
+                stroke-width: 2px;
+                animation: none;
+            }
+        }
+    }
 }
 
-.st0 {
-    fill: $brightNavy;
-    stroke: $deepCharcoal;
-    stroke-miterlimit: 10;
-}
-.st1 {fill: $white;}
-.st3 {
-    font-family: $canaroBook;
-    font-size: 32px;
-}
-.st4{
-    font-family: $canaroBook;
-    font-size: 70px;
-    letter-spacing: 4px;
-}
-.st5 {font-size: 60px;}
-.st6 {
-    font-family: $canaroBook;
-    font-size: 18px;
-    fill: $white;
-    stroke-width: 0;
-}
-.st7 {
-    fill: none;
-    stroke: $white;
-    stroke-miterlimit: 10;
-}
-.st8 {fill: $indigo;}
-.st9 {fill: $brightSunrise;}
-.st10 {fill: $brightNavy;}
-.st11 {
-    font-family: $canaroBook;
-    text-transform: uppercase;
-    font-weight: bold;
-    color:$globalBlue;
-    font-size: 14px;
-}
-.st12{
-    font-size: 55px;
-}
-
-
-.svg_btn {
-    cursor: pointer;
-}
-
-
-/** ANIMATION **/
-@keyframes sprite-truck {
-    100% {  background-position: -390px; }
-}
-@keyframes sprite-rule {
-    100% {  background-position: -325px; }
-}
-@keyframes sprite-doc {
-    100% {  background-position: -454.91px; }
-}
-
-.truck {
-    width: 65.66px;
-    height: 60px;
-    display: block;
-    background-image: url("../imgs/icns/camion.png");
-    animation: sprite-truck 2s steps(6) infinite;
-}
-.rule {
-    width: 64px;
-    height: 60px;
-    display: block;
-    background-image: url("../imgs/icns/rule.png");
-    animation: sprite-rule 2s steps(5) infinite;
-}
-.text-format{
-    font-family: $canaroBook;
-    font-size: 18px;
-    color: $white;
-}
-.doc {
-    width: 65.71px;
-    height: 60px;
-    display: block;
-    background-image: url("../imgs/icns/doc.png");
-    animation: sprite-doc 2s steps(7) infinite;
-}
-.group{
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -ms-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
-}
-.group > *{
-    display: inline-block;
-}
-.group span{
-    vertical-align: top;
-    margin-top: 4px;
-    margin-left: 10px;
-}
-.group span.count{
-    position: absolute;
-    display: block;
-    left: 50%;
-    margin-top: 50px;
-    font-family: $canaroSemiBold;
-    font-size: 60px;
-    letter-spacing: 3px;
-    transform: translate(-50%);
-}
-.group span.count:after{
-    content: "";
-    display: block;
-    position: absolute;
-    right: 7px;
-    bottom: 5px;
-    width: 55px;
-    border-top: 5px solid $brightSunrise;
-}
-.orders{
-    left: 46%;
-}
-.shippers span{
-    margin-top: 18px;
-}
-.warehouse span.count:before{
-    content: "ft";
-    display: block;
-    position: absolute;
-    right: -30px;
-    top: 5px;
-    font-size: 30px;
-}
-.deliveries span{
-    //margin-top: 20px;
-}
-
-svg{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-svg:not(:root){
-    overflow: hidden;
-}
-
-@keyframes blink-circle {
-  0%   {stroke-width: 0}
-  50%  {stroke-width: 1}
-  100% {stroke-width: 0}
-}
-svg circle{
-    cursor: pointer;
-    transition: all ease 1s;
-    animation: blink-circle 2s linear infinite;
-}
-svg circle.active{
-    stroke: $brightSunrise;
-    stroke-width: 2px;
-    animation: none;
-}

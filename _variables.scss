@@ -7,13 +7,17 @@
 |   1.0 - Branding
 |       1.1 - Colors
 |       1.2 - Font Family
+|
 |   2.0 - Layout
 |       2.1 - Breakpoints
 |       2.2 - Grids
 |       2.3 - Container Sizes
 |
+|   3.0 - Elements
+|       3.1 - Mouse Scroller
+|
 |=================================
-|===============================/*
+|===============================*/
 
 
 /*====================
@@ -35,16 +39,19 @@ $transparent: rgba(255, 255, 255, 0);
 $lightTransparent: rgba(255, 255, 255, 0.1);
 //Dark Transparent
 $darkTransparent: rgba(0, 0, 0, 0.1);
+$darkTransparent-md: rgba(0,0,0,0.5);
 
-//Bright Navy Blue
-$brightNavy:#081f75;
-//Indigo Blue
-$indigo:#003ecb;
-//Global Blue
-$globalBlue:#0068ff;
+//Bright Navy Blue #081f75
+$brightNavy:rgba(8, 31, 117, 1);
 
-//Bright Sunrise Yellow
-$brightSunrise:#fff100;
+//Indigo Blue #003ecb
+$indigo:rgba(0, 62, 203, 1);
+
+//Global Blue #0068ff
+$globalBlue:rgba(0, 104, 255, 1);
+$globalBlue-mid: rgba(0, 104, 255, 0.85);
+//Bright Sunrise Yellow #fff100
+$brightSunrise:rgba(255, 241, 0, 1);
 
 
 //Full Black
@@ -179,3 +186,39 @@ $gContainer-lg: $gContainer-large-desktop;
 
 
 
+/*====================
+|   3.1 MOUSE SCROLLER
+====================*/
+
+//Mouse background
+$colorBg: #222a30;
+
+//Outline color
+$colorOutline: #ffffff;
+
+//Outline fade color
+$colorOutlineFade: #4e5559;
+
+//Mouse Width
+$widthMouse: 52px;
+
+//Mouse Height
+$heightMouse: 88px;
+
+//Outline width
+$borderMouse: 6px;
+
+//Mouse position
+$posMouse: 8px;
+
+//Track Ball size
+$sizeTrackball: 10px;
+
+//Track Ball position
+$posTrackball: 20px;
+
+//Track ball srhink animation
+$shrinkTrackball: 0.4;
+
+//Animation duration
+$animDuration: 5s;

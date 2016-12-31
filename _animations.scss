@@ -1,0 +1,180 @@
+/*
+====================
+*    ANIMATIONS - Table of Contents
+====================
+| 
+|   1.0 - InfoGraphic
+|       1.1 - Truck Sprite 
+|       1.2 - Rule Sprite 
+|       1.3 - Doc Sprite 
+|       1.4 - Blinking Circle/Dot
+|   2.0 - Mouse Scroller
+|       2.1 - Color Slide
+|       2.2 - TrackBallSlide
+|       2.3 - NudgeMouse
+====================
+    END Table of Contents
+====================
+*/
+
+
+
+/*
+====================
+|   1.1 Truck Sprite 
+====================
+*/
+@keyframes sprite-truck {
+    100% {  background-position: -390px; }
+}
+
+/*
+====================
+|   1.2 Rule Sprite 
+====================
+*/
+@keyframes sprite-rule {
+    100% {  background-position: -325px; }
+}
+
+/*
+====================
+|   1.3 Doc Sprite 
+====================
+*/
+
+@keyframes sprite-doc {
+    100% {  background-position: -454.91px; }
+}
+
+/*
+====================
+|   1.4 Blinking Circle/Dot 
+====================
+*/
+
+@keyframes blink-circle {
+  0%   {stroke-width: 0}
+  50%  {stroke-width: 1}
+  100% {stroke-width: 0}
+}
+
+
+
+/*
+====================
+|   2.1 Color Slide 
+====================
+*/
+@keyframes colorSlide { 
+  0% { background-position: 0% 100%; }
+  20% { background-position: 0% 0%; }
+  21% { background-color: $colorOutlineFade; }
+  29.99% { 
+    background-color: $colorOutline;
+    background-position: 0% 0%;
+  }
+  30% { 
+    background-color: $colorOutlineFade;
+    background-position: 0% 100%;
+  }
+  50% { background-position: 0% 0%; }
+  51% { background-color: $colorOutlineFade; }
+  59.99% { 
+    background-color: $colorOutline;
+    background-position: 0% 0%;
+  }
+  60% { 
+    background-color: $colorOutlineFade;
+    background-position: 0% 100%;
+  }
+  80% { background-position: 0% 0%; }
+  81% { background-color: $colorOutlineFade; }
+  89.99%, 100% { background-color: $colorOutline; }
+}
+
+
+/*
+====================
+|   2.2 TrackBall Slide 
+====================
+*/
+
+@keyframes trackBallSlide {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  6% { 
+    opacity: 1;
+    transform: scale(0.9) translateY($posTrackball/4);
+  }
+  14% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  15%, 19% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  28%, 29.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  36% { 
+    opacity: 1;
+    transform: scale(0.9) translateY($posTrackball/4);
+  }
+  44% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  45%, 49% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  58%, 59.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  66% { 
+    opacity: 1;
+    transform: scale(0.9) translateY($posTrackball/4);
+  }
+  74% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  75%, 79% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  88%, 100% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+}
+
+/*
+====================
+|   2.3 Mouse Nudge 
+====================
+*/
+
+@keyframes nudgeMouse {
+  0% { transform: translateY(0); }
+  20% { transform: translateY($posMouse); }
+  30% { transform: translateY(0); }
+  50% { transform: translateY($posMouse); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY($posMouse); }
+  90% { transform: translateY(0); }
+}
