@@ -316,16 +316,30 @@
 | 5.0 - Gradients
 ====================
 */
-@mixin bgGradient($colorOutlineFade, $colorOutline) {
+@mixin bgGradient($color1, $color2) {
   background:
-    $colorOutlineFade
+    $color1
     linear-gradient(
       transparent 0%,
       transparent 50%,
-      $colorOutline 50%,
-      $colorOutline 100%
+      $color2 50%,
+      $color2 100%
     );
 }
+
+
+@mixin gradient($color1, $color2)
+{
+    
+    background: $color1; /* Old browsers */
+    background: -moz-linear-gradient(top,  $color1 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  $color1 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  $color1 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+
+}
+
+
 
 /* 
 ====================
@@ -386,4 +400,67 @@
     -moz-animation:    $animations;
     -o-animation:      $animations;
     animation:         $animations;
+}
+
+/*
+======================
+|   Triangles
+======================
+*/
+
+@mixin triangle($size, $direction,  $color){
+    
+    $topColor: $brightNavy-mid;
+    $bottomColor: $brightNavy-mid;
+    
+    @if($size == 'dbl')
+    {
+        &:after{
+            width: 0;
+            height: 0;
+            position:absolute;
+            left:0%;
+            margin-top:-200px;
+            border-style: solid;
+            border-width: 200px 0 0 100px;
+            border-color: $transparent $bottomColor $transparent $bottomColor;
+            line-height: 0px;
+            _border-color: $transparent $bottomColor $transparent $bottomColor;
+            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+        }
+        &:before{
+            width: 0;
+            height: 0;
+            position:absolute;
+            right:0%;
+            border-style: solid;
+            border-width: $triangle_top $triangle_right $triangle_bottom $triangle_left;
+            border-color: $transparent $topColor $transparent $transparent;
+            line-height: 0px;
+            _border-color: $transparent $topColor $transparent $transparent;
+            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+        }
+    }
+    
+    @if($size == 'single'){
+        &:after{
+            width: 0;
+            height: 0;
+            position:absolute;
+            left:0%;
+            margin-top:-150px;
+            border-style: solid;
+            border-width: 150px 0 0 150px;
+            border-color: transparent $bottomColor transparent $bottomColor;
+            line-height: 0px;
+            _border-color: $transparent $bottomColor $transparent $bottomColor;
+            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+        }
+        &:before{
+            
+        }
+        
+    }
+    
+    
 }

@@ -43,6 +43,7 @@ $darkTransparent-md: rgba(0,0,0,0.5);
 
 //Bright Navy Blue #081f75
 $brightNavy:rgba(8, 31, 117, 1);
+$brightNavy-mid:rgba(8, 31, 117, 0.85);
 
 //Indigo Blue #003ecb
 $indigo:rgba(0, 62, 203, 1);
@@ -222,3 +223,38 @@ $shrinkTrackball: 0.4;
 
 //Animation duration
 $animDuration: 5s;
+
+
+
+
+/*====================
+|   3.2 CORNER TRIANGLES
+====================*/
+
+$triangle_color: $globalBlue !default;
+
+//Default Triangle
+$triangle_top: 0 !default;
+$triangle_right: 230px !default;
+$triangle_bottom: 350px !default;
+$triangle_left: 0 !default;
+
+
+//Medium Triangle
+$triangle_md_top: 0 ;
+$triangle_md_right: 450px ;
+$triangle_md_bottom: 150px ;
+$triangle_md_left: 0;
+
+
+//Small Triangle
+$triangle_sm_top: 0 ;
+$triangle_sm_right: 250px ;
+$triangle_sm_bottom: 110px ;
+$triangle_sm_left: 0;
+
+//Large Triangle
+$triangle_lg_top: 0 ;
+$triangle_lg_right: 750px ;
+$triangle_lg_bottom: 470px ;
+$triangle_lg_left: 0;
