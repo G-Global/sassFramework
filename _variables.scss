@@ -43,7 +43,7 @@ $darkTransparent-md: rgba(0,0,0,0.5);
 
 //Bright Navy Blue #081f75
 $brightNavy:rgba(8, 31, 117, 1);
-$brightNavy-mid:rgba(8, 31, 117, 0.85);
+$brightNavy-mid:rgba(8, 31, 117, 0.75);
 
 //Indigo Blue #003ecb
 $indigo:rgba(0, 62, 203, 1);
@@ -235,8 +235,8 @@ $triangle_color: $globalBlue !default;
 
 //Default Triangle
 $triangle_top: 0 !default;
-$triangle_right: 230px !default;
-$triangle_bottom: 350px !default;
+$triangle_right: 150px !default;
+$triangle_bottom: 150px !default;
 $triangle_left: 0 !default;
 
 
