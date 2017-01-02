@@ -65,6 +65,8 @@ html, body{
 
 body{
     background:$deepCharcoal;
+    //background-image:url('../imgs/bgs/bg234-min.jpg');
+    background-size:cover;
 }
 
 /* ======================  */
@@ -348,6 +350,13 @@ hr{
         padding-top:250px;
         padding-bottom:250px;
     }
+    .pitch{
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:50px;
+        padding-bottom:50px;
+        @include transparent(rgba($white, 0.60), $white);
+    }
     .card{
         background:$globalBlue;
         color: $white;
@@ -372,7 +381,8 @@ hr{
         }
     }
     .iconGroup{
-        transform:rotate(345deg);
+        transform:rotate(0deg);
+        padding:25px;
     }
 }
 
@@ -825,4 +835,3 @@ $routeColor: $indigo;
         }
     }
 }
-

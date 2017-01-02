@@ -410,8 +410,8 @@
 
 @mixin triangle($size, $direction,  $color){
     
-    $topColor: $brightNavy-mid;
-    $bottomColor: $brightNavy-mid;
+    $topColor: $globalBlue;
+    $bottomColor: $globalBlue;
     
     @if($size == 'dbl')
     {
