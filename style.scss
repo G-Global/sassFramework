@@ -133,7 +133,7 @@ h1, h2, h3, h4, h5, h6{
         @include animation(nudgeMouse $animDuration ease-out infinite);
         z-index: 9;
             
-    }    
+    }
     .mouse {
         @include transparent(rgba($globalBlue, 0.50), $globalBlue);
         position: relative;
@@ -293,7 +293,7 @@ hr{
         padding-bottom:3%;
         //@include transparent(rgba($white, 0.2), $white);
         &:after{
-            @include transparent(rgba($white, 0.2), $white);
+            @include transparent(rgba($black, 0.75), $black);
             top:0;
             bottom:0;
             left:0;
@@ -359,8 +359,8 @@ hr{
     //@include triangle(dbl, left,  $globalBlue-mid);
     @include transparent(rgba($black, 0.35), $black);
     .content{
-        padding-top:250px;
-        padding-bottom:250px;
+        padding-top:150px;
+        padding-bottom:150px;
     }
     .pitch{
         padding-left:50px;
@@ -369,8 +369,9 @@ hr{
         padding-bottom:50px;
         //@include transparent(rgba($white, 0.60), $white);
         
+        
         &:after{
-            background: rgba(255,255,255,1);
+            background: rgba(255,255,255,0.4);
             top: 0;
             position: absolute;
             content: " ";
@@ -378,7 +379,7 @@ hr{
             left: 0;
             z-index: -1;
             right: 0;
-            filter: blur(130px);
+            filter: blur(50px);
         }
     }
     .card{
@@ -412,7 +413,7 @@ hr{
 
 
 .clients{
-    @include triangle(single, left,  $globalBlue-mid);
+    @include triangle(single, 0px, 150px, 150px, 150px,  $globalBlue-mid);
     @include transparent(rgba($black, 0.35), $black);
 
     h2{
@@ -432,6 +433,32 @@ hr{
             z-index: -1;
             right: 0;
             filter: blur(130px);
+        }
+    }
+    .carousel{
+        .logo{
+            width:150px;
+            height:150px;
+            background:rgba(0,0,0,0.2);
+            background-image:url('../imgs/logos/clients/sprite.gif');
+            &.one{
+                background-position:center 150px;
+            }
+            &.two{
+                background-position:center 300px;
+            }
+            &.three{
+                background-position:center 450px;
+            }
+            &.four{
+                background-position:center 600px;
+            }
+            &.five{
+                background-position:center 750px;
+            }
+            &.six{
+                background-position:center 900px;
+            }
         }
     }
 }
@@ -481,6 +508,7 @@ hr{
     &.navbar-scroll{
         @include transparent(rgba($globalBlue, 0.85), $globalBlue);
         transition: 0.3s;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
     }
     .lang{
         position: absolute;
@@ -494,15 +522,15 @@ hr{
 .parallax{
     overflow: hidden;
     &.whiteOverlay{
-        background-color:rgba(255,255,255,0.45);
+        background-color:rgba(255,255,255,0.35);
     }
     &.darkOverlay-mid{
-        @include transparent(rgba($black, 0.65), $black);
+        background:rgba(25,25,25, 0.56);
     }
     &.darkOverlay{
-        background:rgba(9,17,29, 0.96);
+        background:rgba(25,25,25, 0.96);
     }
-}#09111d
+}
 //rgba(35, 35, 35, 0.95)
 
 /* ===================  */
@@ -512,9 +540,13 @@ hr{
 .locations{
     .card{
         .card-body{
+            font-family: $geoGrotesqueRegular;
+            text-align: center;
             .title{
                 text-align: center;
                 font-size: x-large;
+                padding-top:0px;
+                font-family: $canaroSemiBold;
             }
             .info{
                 text-align: center;
@@ -524,22 +556,23 @@ hr{
                 transition: 0.3s;
                 font-size: 13px;
                 text-align: center;
-                button{
-                    margin-top:25px;
-                }
             }
-            min-height:270px;
-            padding-top:20%;
+            min-height:250px;
+            padding-top:25%;
+            transition: 0.2s;
             padding-left: 15px;
             padding-right: 15px;
             color: $white;
-            font-family: $canaroBook;
             transition: 0.3s;
             &:hover{
                 font-size:large;
-                padding-top:10%;
+                padding-top:5%;
                 .location{
                     display: block;
+                }
+                .qty{
+                    display: none;
+                    transition: 0.3s;
                 }
             }
         }
@@ -549,7 +582,7 @@ hr{
             
                 }
         &:hover{
-            @include transparent(rgba($globalBlue, 0.85), $globalBlue)
+            @include transparent(rgba($black, 0.07), $black)
         }
     }
 
@@ -577,7 +610,7 @@ hr{
 
 .cta{
     
-    @include triangle(dbl, left,  $globalBlue-mid);
+    @include triangle(dbl,0px,150px,150px,150px,$globalBlue-mid);
     width:100%;
     position:relative;
     display: block;
@@ -600,11 +633,17 @@ hr{
         margin-top:25px;
     }
 }
-
+.hideme
+{
+    opacity:0;
+}
 
 .contact{
-    padding-top:150px;
-    padding-bottom:50px;
+    padding-top:0px;
+    padding-bottom:0px;
+    .title{
+        padding-top:100px;
+    }
     .social{
         background:$globalBlue;
         padding:5px;
@@ -620,10 +659,11 @@ hr{
 /* ===================  */
 
 .footer{
-    background:$globalBlue;
+    background:rgba(0,0,0,0.4);
     color:$white;
     padding-top:25px;
     padding-bottom:25px;
+    
     .footerLogo{
         margin-top: 50px;
     }
@@ -735,8 +775,9 @@ $routeCover: $white;
         
     }
     .text{
-        font-family:$canaroBook;
+        font-family:$geoGrotesqueRegular;
         fill:$white ;
+        text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
         stroke-width:0;
         &.lg{
             font-size:27px;
@@ -772,7 +813,7 @@ $routeCover: $white;
         }
     }
     .group{
-        font-family: $canaroBook;
+        font-family: $geoGrotesqueRegular;
         position: absolute;
         opacity: 0;
         visibility: hidden;
@@ -846,6 +887,7 @@ $routeCover: $white;
             position: absolute;
             display: block;
             left: 50%;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
             margin-top:0px;
             font-family: $canaroSemiBold;
             font-size: 60px;
@@ -878,7 +920,7 @@ $routeCover: $white;
         padding: 23px 0;
     }
     .text-format{
-        font-family: $canaroBook;
+        font-family: $geoGrotesqueRegular;
         font-size: 18px;
         color: $white;
     }

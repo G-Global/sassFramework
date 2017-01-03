@@ -408,7 +408,7 @@
 ======================
 */
 
-@mixin triangle($size, $direction,  $color){
+@mixin triangle($size, $triangle_top, $triangle_bottom, $triangle_left, $triangle_right , $bottomColor){
     
     $topColor: $globalBlue-mid;
     $bottomColor: $globalBlue-mid;
@@ -422,7 +422,7 @@
             left:0%;
             margin-top:-$triangle_bottom;
             border-style: solid;
-            border-width: $triangle_top 0 0 $triangle_bottom;
+            border-width: 150px 0 0 $triangle_bottom;
             border-color: $transparent $bottomColor $transparent $bottomColor;
             line-height: 0px;
             _border-color: $transparent $bottomColor $transparent $bottomColor;
@@ -457,7 +457,16 @@
             _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
         }
         &:before{
-            
+            width: 0;
+            height: 0;
+            position:absolute;
+            right:0%;
+            border-style: solid;
+            border-width: $triangle_top $triangle_right $triangle_bottom $triangle_left;
+            border-color: $transparent $topColor $transparent $transparent;
+            line-height: 0px;
+            _border-color: $transparent $topColor $transparent $transparent;
+            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
         }
         
     }
