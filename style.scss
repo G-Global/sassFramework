@@ -999,7 +999,9 @@ $routeCover: $white;
             text-align: center;
             text-transform: capitalize;
             .front, .back{
+                -webkit-backface-visibility: hidden;
                 backface-visibility: hidden;
+                -webkit-transition: -webkit-transform 0.3s;
                 position:absolute;
                 top:0%;
                 left: 0%;
@@ -1011,6 +1013,7 @@ $routeCover: $white;
                 z-index: 2;
                 transition: 0.3s;
                 transform: rotateY(0deg);
+                -webkit-transform: rotateY(0deg);
                 ul{
                     li{
                         cursor:pointer;
@@ -1019,9 +1022,10 @@ $routeCover: $white;
                 }
             }
             .back{
-                //display: none;
                 padding-top:15%;
+                -webkit-transform: rotateY(-180deg);
                 transform: rotateY(-180deg);
+                opacity: 0;
                 .close{
                     color:rgba(255,255,255,0.20);
                     position:absolute;
@@ -1079,6 +1083,7 @@ $routeCover: $white;
             }
         }
         &.flipped{
+            -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
             //background: $globalBlue;
             .card-body{
@@ -1086,8 +1091,9 @@ $routeCover: $white;
                 background: $globalBlue; 
             }
             .back{
-                //display: block;
+                opacity: 1;
                 div{
+                    -webkit-transform: rotateY(-180deg);
                     transform: rotateY(-180deg);
                     transition:0.3s;
                 }
@@ -1098,11 +1104,13 @@ $routeCover: $white;
                     opacity: 1;
                     transition:0.6s;
                 }
+                -webkit-transform: rotateY(180deg);
                 transform: rotateY(180deg); 
                 
             }
             .front{
-                //display:none;
+                opacity:0;
+                -webkit-transform: rotateY(0deg);
                 transform: rotateY(0deg);
             }
         }
