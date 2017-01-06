@@ -6,6 +6,7 @@
 | 
 |   1.0 - DEPENDENCIES
 |       1.1 - Bootstrap Elements
+|       1.2 - Font Awesome
 |
 |   2.0 - G-GLOBAL FRAMEWORK
 |       2.1 - Variables
@@ -14,13 +15,31 @@
 |       2.4 - Fonts
 |
 |   3.0 - ELEMENTS
-|       3.1 - 
-|           3.1.1 - Buttons
-|           3.1.2 - Text
-|           3.1.3 - Navbar
-|       3.2 - Sections
-|           3.2.1 - Intro
-|           3.2.2 - Infographic
+|       3.1 - Html Body
+|       3.2 - Headings
+|       3.3 - Main Wrapper
+|       3.4 - Loader
+|       3.5 - Scroller
+|       3.6 - Buttons
+|       3.7 - HR Lines
+|       3.8 - Text
+|       3.9 - Navbar
+|       3.10 - Parallax
+|       3.11 - Boxes
+|       3.12 - HideMe
+|       3.13 - Corner Triangle
+|       3.14 - Main Content
+|
+|   4.0 - SECTIONS
+|       4.1 - Intro
+|       4.2 - Call to Action
+|       4.3 - Info
+|       4.4 - Infograph
+|       4.5 - Clients
+|           4.5.1 - Carousel
+|       4.6 - Contact
+|           4.6.1 - Locations
+|       4.7 - Footer
 |
 |=================================
 |===============================*/
@@ -31,10 +50,37 @@
 |   1.0 DEPENDENCIES
 ====================*/
 
-//Bootstrap Elements
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
+// 1.1 Bootstrap Variables
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+// 1.2 Bootstrap Reset
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+// 1.3 Bootstrap Core
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+//1.4 Bootstrap Components
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 
-@import "bower_components/font-awesome/scss/font-awesome";
+//FontAwesome
+@import "bower_components/font-awesome/scss/variables";
+@import "bower_components/font-awesome/scss/mixins";
+@import "bower_components/font-awesome/scss/core";
+@import "bower_components/font-awesome/scss/icons";
+//@import "bower_components/font-awesome/scss/fixed-width";
+
+//AnimateCSS
+@import "bower_components/textillate/assets/animate";
 
 /*==========================
 |   2.0 G-GLOBAL FRAMEWORK
@@ -55,7 +101,7 @@
 
 
 /* ========================= */
-/* === 3.1.1 Html - Body === */
+/* === 3.1 Html - Body === */
 /* ========================= */
 
 html, body{
@@ -64,13 +110,15 @@ html, body{
 }
 
 body{
-    background:rgb(43, 43, 43);
-    //background-image:url('../imgs/bgs/bg234-min.jpg');
     background-size:cover;
+    background-color: $deepCharcoal;
+    background-attachment: fixed;
+    background-image: url('../imgs/bgs/bgCargoX.jpg');
+    background-repeat: no-repeat;
 }
 
 /* ======================  */
-/* === 3.1.2 Headings  ==  */
+/* === 3.2 Headings  ==  */
 /* ======================  */
 
 h1, h2, h3, h4, h5, h6{
@@ -78,7 +126,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* ==========================  */
-/* === 3.1.2 Main Wrapper  ==  */
+/* === 3.3 Main Wrapper  ==  */
 /* ==========================  */
 
 .wrapper{
@@ -91,7 +139,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* =================  */
-/* === 3.1.3 Loader ==  */
+/* === 3.4 Loader ==  */
 /* =================  */
 
 .loader{
@@ -110,7 +158,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 /* ======================  */
-/* === 3.1.2 Scroller  ==  */
+/* === 3.5 Scroller  ==  */
 /* ======================  */
 
 .scroller{
@@ -119,21 +167,7 @@ h1, h2, h3, h4, h5, h6{
     position:fixed;
     transition: 0.7s;
     z-index: 3;
-    .toTop{
-        visibility: hidden;
-        opacity: 0;
-        position: absolute;
-        transition: 1s;
-        content: "^";
-        background: $globalBlue;
-        width:$widthMouse;
-        background-size: 225%;
-        height: $heightMouse;
-        border-radius: 100px;
-        @include animation(nudgeMouse $animDuration ease-out infinite);
-        z-index: 9;
-            
-    }
+    opacity:0;
     .mouse {
         @include transparent(rgba($globalBlue, 0.50), $globalBlue);
         position: relative;
@@ -196,13 +230,14 @@ h1, h2, h3, h4, h5, h6{
 }
 
 
-/* =================== */
-/* === 3.1 Buttons === */
-/* =================== */
+/* ===================== */
+/* === 3.6 Buttons === */
+/* ===================== */
 
 .btn{
     border-radius: 0px;
     border: 1px solid $softWhite;
+    transition: 0.1s;
     &.btn-primary{
         background: $transparent;
         &:hover{
@@ -210,12 +245,29 @@ h1, h2, h3, h4, h5, h6{
             border:1px solid $transparent;
         }
     }
+    &.btn-full{
+        @include transparent(rgba($globalBlue, 0.80), $globalBlue);
+        border:0px;
+        color: $white;
+        &:hover{
+            background:$globalBlue;
+        }
+    }
+    &.btn-inverse{
+        @include transparent(rgba($white, 0.95), $white);
+        color: $globalBlue;
+        border: 1px solid $globalBlue;
+        &:hover{
+            background:$indigo;
+            color: $softWhite;
+        }
+    }
     
 }
 
-/* ===================== */
-/* === 3.1 HR Lines ==== */
-/* ===================== */
+/* ======================= */
+/* === 3.7 HR Lines ==== */
+/* ======================= */
 
 $hrColor: $brightSunrise;
 
@@ -232,12 +284,20 @@ hr{
         margin-top:10px;
         margin-bottom:10px;
     }
+    &.sm{
+        margin-top:10px;
+        margin-bottom:15px;
+    }
     
 }
 
-/* =================== */
-/* === 3.1 Text  ===== */
-/* =================== */
+.divider{
+    border-right: 1px solid rgba(255,255,255,0.50)
+}
+
+/* ===================== */
+/* === 3.8 Text  ===== */
+/* ===================== */
 
 .txt{
     &.white{
@@ -272,202 +332,10 @@ hr{
     }
 }
 
-/*
-====================
-|   3.2 SECTIONS
-====================
-*/
 
-/* =================== */
-/* === 3.1 INTRO === */
-/* =================== */
-
-.intro{
-    .copy{
-        position:absolute;
-        bottom: 0%;
-        padding-left:7%;
-        width:100%;
-        padding-top:3%;
-        padding-right:7%;
-        padding-bottom:3%;
-        //@include transparent(rgba($white, 0.2), $white);
-        &:after{
-            @include transparent(rgba($black, 0.75), $black);
-            top:0;
-            bottom:0;
-            left:0;
-            right:0;
-            content:" ";
-            position: absolute;
-            z-index:-1;
-            filter:blur(100px);
-        }
-        
-    }
-    .title{
-        font-size: 4rem;
-        color: $softWhite;
-    }
-    .subtitle{
-        font-size: 2rem;
-        font-family:$geoGrotesqueRegular;
-        color:$globalBlue;
-    }
-}
-
-
-.diag{
-    width: 0;
-    height: 0;
-    position:absolute;
-    right:0%;
-    border-style: solid;
-    border-width: 0 650px 400px 0;
-    border-color: transparent $globalBlue-mid transparent transparent;
-    line-height: 0px;
-    _border-color: $transparent $globalBlue-mid $transparent $transparent;
-    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-    &.sm{
-        border-width: 0 250px 100px 0;
-    }
-    &.md{
-        border-width: 0 450px 200px 0;
-    }
-    &.lg{
-        border-width: 0 850px 600px 0;
-    }
-    &.left{
-        left:0%;
-        border-color: transparent transparent transparent $globalBlue-mid;
-    }
-    &.sm, .left{
-        border-width: 0px 0px 150px 200px;
-    }
-    &.md, .left{
-        border-width: 0px 0px 250px 300px;
-    }
-    &.lg, .left{
-        border-width: 0px 0px 450px 550px;
-    }
-    &.bot{
-        border-width: 100px 0px 0px 0px;
-    }
-}
-
-.info{
-    //@include triangle(dbl, left,  $globalBlue-mid);
-    @include transparent(rgba($black, 0.35), $black);
-    .content{
-        padding-top:150px;
-        padding-bottom:150px;
-    }
-    .pitch{
-        padding-left:50px;
-        padding-right:50px;
-        padding-top:50px;
-        padding-bottom:50px;
-        //@include transparent(rgba($white, 0.60), $white);
-        
-        
-        &:after{
-            background: rgba(255,255,255,0.4);
-            top: 0;
-            position: absolute;
-            content: " ";
-            bottom: 0;
-            left: 0;
-            z-index: -1;
-            right: 0;
-            filter: blur(50px);
-        }
-    }
-    .card{
-        background:$globalBlue;
-        color: $white;
-        text-align: center;
-        transition:0.6s;
-        //padding:0px;
-        .card-body{
-            padding: 5%;
-        }
-        &.icon{
-            font-size:5rem;
-            padding:5%;
-            background:$globalBlue;
-        }
-        &:hover{
-            @include transparent(rgba($globalBlue, 0.85), $globalBlue);
-            z-index: 999;
-            transition: 0.4s;
-            box-shadow: 2px 3px 3px $darkTransparent;
-            transform: rotate(16deg);
-            transition: 0.6s;
-        }
-    }
-    .iconGroup{
-        transform:rotate(0deg);
-        padding:25px;
-    }
-}
-
-
-.clients{
-    @include triangle(single, 0px, 150px, 150px, 150px,  $globalBlue-mid);
-    @include transparent(rgba($black, 0.35), $black);
-
-    h2{
-        letter-spacing: -0.5px;
-    }
-    .content{
-        padding-top:200px;
-        padding-bottom:200px;
-        
-        &:after{
-            background: rgba(255,255,255,1);
-            top: 0;
-            position: absolute;
-            content: " ";
-            bottom: 0;
-            left: 0;
-            z-index: -1;
-            right: 0;
-            filter: blur(130px);
-        }
-    }
-    .carousel{
-        .logo{
-            width:150px;
-            height:150px;
-            background:rgba(0,0,0,0.2);
-            background-image:url('../imgs/logos/clients/sprite.gif');
-            &.one{
-                background-position:center 150px;
-            }
-            &.two{
-                background-position:center 300px;
-            }
-            &.three{
-                background-position:center 450px;
-            }
-            &.four{
-                background-position:center 600px;
-            }
-            &.five{
-                background-position:center 750px;
-            }
-            &.six{
-                background-position:center 900px;
-            }
-        }
-    }
-}
-
-
-
-/* =================== */
-/* === 3.1 Navbar ===  */
-/* =================== */
+/* ==================== */
+/* === 3.9 Navbar ===  */
+/* ==================== */
 
 .navbar{
     border-radius:0px;
@@ -475,12 +343,23 @@ hr{
     height:85px;
     transition: 0.3s;
     .navbar-brand{
-        margin-top:10px;
+        margin-top:20px;
         margin-left:15px !important;
         transition:0.3s;
+        width:180px;
+        height:48px;
+        background: url('../imgs/logos/logo_bw.png');
+        background-repeat: no-repeat;
+        transition: 0.3s;
         &.shrink{
-            margin-top:0px;
-            margin-left:0px !important;
+            margin-top:13px;
+            transition:0.3s;
+            width:38px;
+            margin-left:5px !important;
+            &:hover{
+                width:180px;
+                transition:0.3s;
+            }
         }
         
     }
@@ -501,7 +380,10 @@ hr{
                 background:$globalBlue;
             }
             &:visited{
-                background:$globalBlue;
+                background:rgba(0,0,0,0.35);
+            }
+            &:focus{
+                background:rgba(0,0,0,0.3);
             }
         }
     }
@@ -509,6 +391,20 @@ hr{
         @include transparent(rgba($globalBlue, 0.85), $globalBlue);
         transition: 0.3s;
         box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.35);
+        a{
+            &:hover{
+                background:$darkTransparent;
+            }
+            &:active{
+                background:$darkTransparent;
+            }
+            &:visited{
+                background:rgba(0,0,0,0.35);
+            }
+            &:focus{
+                background:rgba(0,0,0,0.3);
+            }
+        }
     }
     .lang{
         position: absolute;
@@ -516,165 +412,35 @@ hr{
     }
     
 }
-/* ===================  */
-/* === 3.1 Parallax ==  */
-/* ===================  */
+/* ======================  */
+/* === 3.10 Parallax ==  */
+/* ======================  */
+
 .parallax{
-    overflow: hidden;
+    //background-color: $deepCharcoal;
+    //background-attachment: fixed;
+    //background-image: url('../imgs/bgs/bgCargoX.jpg');
+    //background-repeat: no-repeat;
+    //background-position: center;
+    //background-size: cover;
+    //transform: none;
+    //-webkit-transform: translate3d(0,0,0);
+    
     &.whiteOverlay{
         background-color:rgba(255,255,255,0.35);
     }
     &.darkOverlay-mid{
-        background:rgba(25,25,25, 0.56);
+        background:rgba(25,25,25, 0.50);
     }
     &.darkOverlay{
-        background:rgba(25,25,25, 0.96);
-    }
-}
-//rgba(35, 35, 35, 0.95)
-
-/* ===================  */
-/* === 3.1 Cards ==  */
-/* ===================  */
-
-.locations{
-    .card{
-        .card-body{
-            font-family: $geoGrotesqueRegular;
-            text-align: center;
-            .title{
-                text-align: center;
-                font-size: x-large;
-                padding-top:0px;
-                font-family: $canaroSemiBold;
-            }
-            .info{
-                text-align: center;
-            }
-            .location{
-                display: none;
-                transition: 0.3s;
-                font-size: 13px;
-                text-align: center;
-            }
-            min-height:250px;
-            padding-top:25%;
-            transition: 0.2s;
-            padding-left: 15px;
-            padding-right: 15px;
-            color: $white;
-            transition: 0.3s;
-            &:hover{
-                font-size:large;
-                padding-top:5%;
-                .location{
-                    display: block;
-                }
-                .qty{
-                    display: none;
-                    transition: 0.3s;
-                }
-            }
-        }
-        &.odd{
-                }
-        &.even{
-            
-                }
-        &:hover{
-            @include transparent(rgba($black, 0.07), $black)
-        }
-    }
-
-}
-
-.divider{
-    border-right: 1px solid rgba(255,255,255,0.50)
-}
-
-
-
-/* =========================  */
-/* === 3.1 Main Content ====  */
-/* =========================  */
-
-
-#gContent{
-    margin:0px !important;
-    padding:0px !important;
-}
-
-/* =========================  */
-/* === 3.1 Call to Action ==  */
-/* =========================  */
-
-.cta{
-    
-    @include triangle(dbl,0px,150px,150px,150px,$globalBlue-mid);
-    width:100%;
-    position:relative;
-    display: block;
-    .content{
-        padding-top:200px;
-        padding-bottom:200px;
-    }
-    //background: url(../imgs/bgs/bg234.jpg);
-    background-size:cover;
-    margin-left:0;
-    margin-right: 0;
-    //background: transparent;
-    //background-position:center;
-    //background-size:cover;
-    //padding-top:35px;
-    //padding-top:150px;
-    //padding-bottom:200px;
-    color: $softWhite;
-    .phones{
-        margin-top:25px;
-    }
-}
-.hideme
-{
-    opacity:0;
-}
-
-.contact{
-    padding-top:0px;
-    padding-bottom:0px;
-    .title{
-        padding-top:100px;
-    }
-    .social{
-        background:$globalBlue;
-        padding:5px;
-        border-radius:50%;
-        a{
-            color:$white;
-        }
-    }
-}
-
-/* ===================  */
-/* === 3.1 Footer ====  */
-/* ===================  */
-
-.footer{
-    background:rgba(0,0,0,0.4);
-    color:$white;
-    padding-top:25px;
-    padding-bottom:25px;
-    
-    .footerLogo{
-        margin-top: 50px;
+        background:rgba(25,25,25, 0.90);
     }
 }
 
 
-/*
-=========
-|   Boxes
-=========
-*/
+/* ====================== */
+/* |   3.11 - Boxes === */
+/* ====================== */
 
 .box{
     border: 1px solid $white;
@@ -687,62 +453,223 @@ hr{
 }
 
 
-/* ===================  */
-/* === 3.1 Carousel ==  */
-/* ===================  */
-.client_slide{
-  .carousel-inner{
-    > .item{
-      transition: 500ms ease-in-out left;
+
+/* ====================== */
+/* | == 3.12 - HideMe = */
+/*======================= */
+
+.hideme
+{
+    opacity:0;
+}
+
+/* ================================== */
+/* |  === 3.13 - Corner Triangle == */
+/* ================================== */
+
+.diag{
+    width: 0;
+    height: 0;
+    z-index: 3;
+    position:absolute;
+    right:0%;
+    border-style: solid;
+    border-width: 0 650px 400px 0;
+    border-color: transparent $globalBlue-mid transparent transparent;
+    line-height: 0px;
+    transition:0.3s;
+    _border-color: $transparent $globalBlue-mid $transparent $transparent;
+    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+    &.sm{
+        border-width: 0 650px 900px 0;
+        transition:0.3s;
     }
-    .active{
-      &.left{
-        left:-25%;
-      }
-      &.right{
-        left:25%;
-      }
+    &.md{
+        border-width: 0 450px 200px 0;
     }
-    .next{
-      left: 25%;
+    &.lg{
+        border-width: 0 850px 600px 0;
     }
-    .prev{
-      left: -25%;
+    &.left{
+        left:0%;
+        border-color: transparent transparent transparent $globalBlue-mid;
     }
-    @media all and (transform-3d), (-webkit-transform-3d) {
-      > .item{
-        // use your favourite prefixer here
-        transition: 500ms ease-in-out all;
-        backface-visibility: visible;
-        transform: none!important;
-      }
+    &.sm, .left{
+        border-width: 0 800px 100px 0;
+        transition:0.3s;
     }
-  }
-  .carouse-control{
-    &.left, &.right{
-      background-image: none;
+    &.md, .left{
+        border-width: 0px 0px 250px 300px;
     }
-  }
+    &.lg, .left{
+        border-width: 0px 0px 450px 550px;
+    }
+    &.bot{
+        border-width: 100px 0px 0px 0px;
+    }
+}
+
+/* =========================  */
+/* === 3.14 Main Content ====  */
+/* =========================  */
+
+
+#gContent{
+    margin:0px !important;
+    padding:0px !important;
+}
+
+/* =========================  */
+/* === 3.14 Modals Fix =====  */
+/* =========================  */
+
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+     -moz-transition: -moz-transform 0.3s ease-out;
+       -o-transition: -o-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog {
+
+}
+
+.modal-content{
+    background: rgba(0,0,0,0.01);
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.02) !important;
+    border-radius: 0px;
+    border: none;
+    .modal-header{
+        border-bottom: 0px;
+        text-align:center;
+        .title{
+            color:$white;
+        }
+        .close{
+            float:right;
+        }
+    }
+    .modal-body{
+        
+    }
+}
+
+/*
+====================
+|   4.0 SECTIONS
+====================
+*/
+
+/* ========================= */
+/* === 4.1 Section INTRO === */
+/* ========================= */
+
+.intro{
+    .copy{
+        position:absolute;
+        bottom: 0%;
+        padding-left:7%;
+        width:100%;
+        padding-top:3%;
+        padding-right:7%;
+        padding-bottom:3%;
+        z-index: 0;
+        &:after{
+            @include transparent(rgba($black, 0.45), $black);
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            content:" ";
+            position: absolute;
+            z-index:-1;
+            filter:blur(20px);
+        }
+        
+    }
+    .title{
+        font-size: 4rem;
+        color: $softWhite;
+        z-index: 1;
+    }
+    .subtitle{
+        font-size: 2rem;
+        font-family:$canaroSemiBold;
+        color:$globalBlue;
+        z-index: 1;
+        //text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
+    }
+}
+
+/* =================================  */
+/* === 4.2 Section Call to Action ==  */
+/* =================================  */
+
+.cta{
+    
+    @include triangle(dbl,0px,150px,150px,150px,$globalBlue-mid);
+    width:100%;
+    position:relative;
+    display: block;
+    .content{
+        padding-top:200px;
+        padding-bottom:200px;
+    }
+    background-size:cover;
+    margin-left:0;
+    margin-right: 0;
+    color: $softWhite;
+    .phones{
+        margin-top:25px;
+    }
+}
+
+/* ====================== */
+/* == 4.3 Section INFO == */
+/* ====================== */
+
+
+.info{
+    @include transparent(rgba($black, 0.35), $black);
+    .content{
+        padding-top:150px;
+        padding-bottom:150px;
+    }
+    .pitch{
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:50px;
+        padding-bottom:50px;
+        &:after{
+            background: rgba(255,255,255,0.4);
+            top: 0;
+            position: absolute;
+            content: " ";
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            right: 0;
+            filter: blur(50px);
+        }
+    }
+    .iconGroup{
+        transform:rotate(0deg);
+        padding:25px;
+    }
 }
 
 
-
-/* ======================  */
-/* === 3.1 Infographic ==  */
-/* ======================  */
+/* ============================  */
+/* === 4.4 Section Infograph ==  */
+/* ============================  */
 
 $routeColor: $globalBlue;
-
 $routeFill: $globalBlue;
 $routeCover: $white;
 
-
 .infografia {
     min-height: 1350px;
-    //background-image:url('../imgs/bgs/bgCargo6-whiteOverlay.jpg');
-    //background-attachment: fixed;
-    //background-repeat:no-repeat;
-    //background-size: cover;
     height:4200px;
     position: relative;
     z-index: 1;
@@ -752,27 +679,11 @@ $routeCover: $white;
         position: fixed;
         width: 130vw;
         top: 50%;
-        opacity: 0.2;
+        opacity: 0.65;
         right: 14%;
-        z-index: -1;
+        z-index: -3;
+        display:none;
         visibility: hidden;
-    }
-    &:before{
-        //@include transparent(rgba($globalBlue, 0.35), $globalBlue);
-        //top: 0;
-        //bottom: 0;
-        //left: 0;
-        //content: " ";
-        //filter: blur(100px);
-        //width: 100%;
-        //right: 0;
-        //height: 100%;
-        //z-index: -1;
-        //position: relative;
-        
-    }
-    &:after{
-        
     }
     .text{
         font-family:$geoGrotesqueRegular;
@@ -830,8 +741,6 @@ $routeCover: $white;
                 background-image: url("../imgs/icns/doc.png");
                 @include animation(sprite-doc 2s steps(7) infinite);
             }
-            .count{}
-            span{}
         }
         &.shippers{
             .doc {
@@ -841,7 +750,6 @@ $routeCover: $white;
                 background-image: url("../imgs/icns/doc.png");
                 @include animation(sprite-doc 2s steps(7) infinite);
             }
-            .count{}
             span{
                 margin-top: 18px;
             }
@@ -864,7 +772,6 @@ $routeCover: $white;
                     font-size: 30px;
                 }
             }
-            span{}
         }
         &.deliveries{
             .truck {
@@ -874,8 +781,6 @@ $routeCover: $white;
                 background-image: url("../imgs/icns/camion.png");
                 @include animation(sprite-truck 2s steps(6) infinite);
             }
-            .count{}
-            span{}
         }
         
         span{
@@ -914,10 +819,10 @@ $routeCover: $white;
         }
     }
     #infoSVG {
-        position: relative;
+        //position: relative;
         z-index: 2;
-        min-width: 100%;
-        padding: 23px 0;
+        //min-width: 100%;
+        //padding: 23px 0;
     }
     .text-format{
         font-family: $geoGrotesqueRegular;
@@ -926,13 +831,16 @@ $routeCover: $white;
     }
     
     svg{
-        position: absolute;
+        //position: absolute;
+        //float:left;
+        padding-top:50px;
+        height:3200px !important;
         width: 100%;
         height: 100%;
-        top: 0;
-        left: 0;
+        top: 0px;
+        //left: 5%;
         &:not(:root){
-            overflow: hidden;
+            //overflow: hidden;
         }
         .circle{
             cursor: pointer;
@@ -944,5 +852,274 @@ $routeCover: $white;
                 animation: none;
             }
         }
+    }
+}
+
+
+/* ============================ */
+/* | 4.4.1 Mobile Infograph === */
+/* ============================ */
+
+.mobileInfograph{
+    background-color:#3251a3;
+    padding-top:55px;
+}
+
+/* ============================ */
+/* |   4.5 - Section Clients == */
+/* ============================ */
+
+.clients{
+    @include triangle(single, 0px, 150px, 150px, 150px,  $globalBlue-mid);
+    @include transparent(rgba($black, 0.35), $black);
+
+    h2{
+        letter-spacing: -0.5px;
+    }
+    .content{
+        padding-top:200px;
+        padding-bottom:200px;
+        
+        &:after{
+            background: rgba(255,255,255,1);
+            top: 0;
+            position: absolute;
+            content: " ";
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            right: 0;
+            filter: blur(130px);
+        }
+    }
+    .carousel{
+        .logo{
+            width:150px;
+            height:150px;
+            background:rgba(0,0,0,0.01);
+            background-image:url('../imgs/logos/clients/sprites.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            &.one{
+                background-position:center 65px;
+            }
+            &.two{
+                background-position:center -86px;
+            }
+            &.three{
+                background-position:center -260px;
+            }
+            &.four{
+                background-position:center -412px;
+            }
+            &.five{
+                background-position:center -580px;
+            }
+            &.six{
+                background-position:center -720px;
+            }
+        }
+    }
+}
+
+/* =====================  */
+/* === 4.5.1 Carousel ==  */
+/* =====================  */
+
+.client_slide{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-25%;
+      }
+      &.right{
+        left:25%;
+      }
+    }
+    .next{
+      left: 25%;
+    }
+    .prev{
+      left: -25%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carouse-control{
+    &.left, &.right{
+      background-image: none;
+    }
+  }
+}
+
+
+/* ==========================  */
+/* === 4.6 Section CONTACT ==  */
+/* ==========================  */
+
+.contact{
+    padding-top:0px;
+    padding-bottom:0px;
+    .title{
+        padding-top:100px;
+    }
+    .social{
+        background:$globalBlue;
+        padding:5px;
+        border-radius:50%;
+        a{
+            color:$white;
+        }
+    }
+}
+
+/* ==================== */
+/* | 4.6.1 Locations == */
+/* ==================== */
+
+.locations{
+    .card{
+        min-height:250px;
+        color: $white;
+        transition: 0.3s;
+        perspective: 250px;
+        .card-body{
+            padding-left: 15px;
+            padding-right: 15px;
+            transform-style: preserve-3d;
+            position: relative;
+            text-align: center;
+            text-transform: capitalize;
+            .front, .back{
+                backface-visibility: hidden;
+                position:absolute;
+                top:0%;
+                left: 0%;
+                width:100%;
+                height:100%;
+            }
+            .front{
+                padding-top:25%;
+                z-index: 2;
+                transition: 0.3s;
+                transform: rotateY(0deg);
+                ul{
+                    li{
+                        cursor:pointer;
+                        
+                    }
+                }
+            }
+            .back{
+                //display: none;
+                padding-top:15%;
+                transform: rotateY(-180deg);
+                .close{
+                    color:rgba(255,255,255,0.20);
+                    position:absolute;
+                    font-size: 3rem;
+                    left:0%;
+                    top:0%;
+                    opacity: 0;
+                    transition:0.6s;
+                    cursor:pointer;
+                }
+                .location{
+                    font-size:1.5rem;
+                }
+                .info{
+                    font-size:2rem;
+                }
+                .actions{
+                    padding-top:50px;
+                }
+            }
+            .title{
+                text-align: center;
+                font-size: x-large;
+                text-transform: capitalize;
+                padding-top:0px;
+                font-family: $canaroSemiBold;
+            }
+            .info{
+                text-align: center;
+                background: rgba(0,0,0,0);
+            }
+            .location{
+                display: none;
+                transition: 0.3s;
+                font-size: 13px;
+                text-align: center;
+            }
+        }
+        &:hover{
+            @include transparent(rgba($black, 0.07), $black);
+            .card-body{
+                
+                .front{
+                    font-size:large;
+                    padding-top:5%;
+                .location{
+                    display: block;
+                    transition:0.2s;
+                }
+                .qty{
+                    display: none;
+                    transition: 0.3s;
+                    }
+                }
+            }
+        }
+        &.flipped{
+            transform: rotateY(180deg);
+            //background: $globalBlue;
+            .card-body{
+                transform: rotateY(180deg);
+                background: $globalBlue; 
+            }
+            .back{
+                //display: block;
+                div{
+                    transform: rotateY(-180deg);
+                    transition:0.3s;
+                }
+                .location{
+                    display: block;
+                }
+                .close{
+                    opacity: 1;
+                    transition:0.6s;
+                }
+                transform: rotateY(180deg); 
+                
+            }
+            .front{
+                //display:none;
+                transform: rotateY(0deg);
+            }
+        }
+    }
+}
+
+/* ===========================  */
+/* === 4.7 Section Footer ====  */
+/* ===========================  */
+
+.footer{
+    background: rgba(25, 25, 25,  0.96);
+    color:$white;
+    padding-top:25px;
+    padding-bottom:25px;
+    
+    .footerLogo{
+        margin-top: 50px;
     }
 }

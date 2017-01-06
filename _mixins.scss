@@ -1,8 +1,9 @@
-/*
-====================
-*    MIXINS - Table of Contents
-====================
-| 
+/* ==============================
+|   - TABLE OF CONTENTS -
+=================================
+|   
+|   MIXINS
+|
 |   1.0 - Grid Framework
 |       1.1 - Make grid columns
 |       1.2 - Float grid columns
@@ -28,21 +29,23 @@
 |           2.6.1 - Set lg offset
 |           2.6.2 - Set lg push
 |           2.6.3 - Set lg pull
-|   3.- Clearfix
-|   4.- Center Block
-|   5.- Gradients
-|   6.- KeyFrames Aminations
-====================
-    END Table of Contents
-====================
-*/
+|   3.0 - Clearfix
+|   4.0 - Center Block
+|   5.0 - Gradients
+|       5.1 - Backgrounds
+|       5.2 - Gradients
+|   6.0 - KeyFrames Aminations
+|       6.1 - Animations Generator
+|   7.0 - Triangles
+|
+====================================
+|  END Table of Contents
+==================================== */
 
 
-/* 
-====================
-| 1.0 - GRID FRAMEWORK
-====================
-*/
+/* ========================= */
+/* | 1.0 - GRID FRAMEWORK == */
+/* ========================= */
 
 /* === 1.1 - Make Grid Columns ===*/
 
@@ -135,11 +138,9 @@
     
 }
 
-/* 
-====================
-| 2.0 - GRID SYSTEM
-====================
-*/
+/* ====================== */
+/* | 2.0 - GRID SYSTEM == */
+/* ====================== */
 
 /* === 2.1 - Center containers === */
 @mixin container-fixed($pipe: $grid-pipe-width){
@@ -283,11 +284,9 @@
 
 
 
-/* 
-====================
-| 3.0 - ClearFix
-====================
-*/
+/* ==================== */
+/* | 3.0 - ClearFix === */
+/* ==================== */
 
 @mixin clearfix(){
     &:before,
@@ -300,22 +299,25 @@
     }
 }
 
-/* 
-====================
-| 4.0 - Center Block
-====================
-*/
+/* ======================= */
+/* | 4.0 - Center Block == */
+/* ======================= */
+
 @mixin center-block(){
     display:block;
     margin-left: auto;
     margin-right:auto;
 }
 
-/* 
-====================
-| 5.0 - Gradients
-====================
-*/
+/* ================================== */
+/* | 5.0 - Gradients & Backgrounds == */
+/* ================================== */
+
+
+/* ============================= */
+/* | 5.1 - BackgroundGradient == */
+/* ============================= */
+
 @mixin bgGradient($color1, $color2) {
   background:
     $color1
@@ -327,6 +329,9 @@
     );
 }
 
+/* ==================== */
+/* | 5.2 - Gradient == */
+/* ==================== */
 
 @mixin gradient($color1, $color2)
 {
@@ -341,11 +346,9 @@
 
 
 
-/* 
-====================
-| 5.1 - Transparencies
-====================
-*/
+/* ========================= */
+/* | 5.1 - Transparencies == */
+/* ========================= */
 
 
 @mixin transparent($color, $background){
@@ -357,11 +360,10 @@
 }
 
 
-/*
-====================
-|   6.0 Keyframes Animations
-===================
-*/
+/* ================================ */
+/* |   6.0 Keyframes Animations === */
+/* ================================ */
+
 
 @mixin keyframes( $animationName )
 {
@@ -380,11 +382,10 @@
 }
 
 
-/*
-======================
-|   Animations
-=====================
-*/
+/* ============================ */
+/* | 6.1 Animation Generator == */
+/* ============================ */
+
 @mixin animation($animate...) {
     $max: length($animate);
     $animations: '';
@@ -402,11 +403,10 @@
     animation:         $animations;
 }
 
-/*
-======================
-|   Triangles
-======================
-*/
+/* ==================== */
+/* |   7.0 Triangles == */
+/* ==================== */
+
 
 @mixin triangle($size, $triangle_top, $triangle_bottom, $triangle_left, $triangle_right , $bottomColor){
     
