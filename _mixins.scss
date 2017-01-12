@@ -37,6 +37,7 @@
 |   6.0 - KeyFrames Aminations
 |       6.1 - Animations Generator
 |   7.0 - Triangles
+|   8.0 - Navbar
 |
 ====================================
 |  END Table of Contents
@@ -333,8 +334,7 @@
 /* | 5.2 - Gradient == */
 /* ==================== */
 
-@mixin gradient($color1, $color2)
-{
+@mixin gradient($color1, $color2){
     
     background: $color1; /* Old browsers */
     background: -moz-linear-gradient(top,  $color1 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6-15 */
@@ -364,9 +364,7 @@
 /* |   6.0 Keyframes Animations === */
 /* ================================ */
 
-
-@mixin keyframes( $animationName )
-{
+@mixin keyframes( $animationName ){
     @-webkit-keyframes $animationName {
         @content;
     }
@@ -472,4 +470,23 @@
     }
     
     
+}
+
+
+/* ==================== */
+/* |   8.0 Navbar == */
+/* ==================== */
+
+//Vertical Align
+@mixin navbar-vertical-align($element-height) {
+  margin-top: (($navbar-height - $element-height) / 2);
+  margin-bottom: (($navbar-height - $element-height) / 2);
+}
+
+//Divider
+@mixin nav-divider($color: #e5e5e5) {
+  height: 1px;
+  margin: (($line-height-computed / 2) - 1) 0;
+  overflow: hidden;
+  background-color: $color;
 }

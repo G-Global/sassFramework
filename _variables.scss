@@ -73,6 +73,70 @@ $warning :#ffb000;
 //Danger Red / Magenta
 $alert :#f7345e;
 
+
+/** Navbar **/
+
+//Defaults
+$navbar-height: 65px !default;
+$navbar-border: 0px !default;
+$navbar-border-radius: 0px !default;
+$navbar-margin-bottom: 0px;
+$navbar-padding-horizontal: floor(($grid-pipe-width / 2)) !default;
+$navar-collapse-max-height: 300px !default;
+
+//Shrink
+$navbar-shrink-margin:0 0 0 5px !default;
+$navbar-shrink-logo: 9px 0 0 0 !default;
+$navbar-shrink-logo-width: 38px !default;
+$navbar-shring-height: 65px;
+
+//Colors
+$navbar-background: $globalBlue-mid !default;
+$navbar-border: darken($globalBlue, 6.5%) !default;
+$navbar-color: $softWhite;
+
+//Logo
+$navbar-logo-width: 180px !default;
+$navbar-logo-height: 48px !default;
+$navbar-logo-margin: 33px 0 0 10px !default;
+$navbar-logo-background: url('../imgs/logos/logo_full@1x.svg') no-repeat !default;
+
+$navbar-logo-icon-background: url('../imgs/logos/logo_icon@1x.svg') no-repeat;
+
+
+//Links
+$navbar-link-color: $softWhite;
+$navbar-link-hover: darken($globalBlue, 1.5%) !default;
+$navbar-link-active: darken($globalBlue, 3.5%) !default;
+$navbar-link-active-bg: darken($globalBlue, 6.5%) !default;
+$navbar-link-visited: darken($globalBlue, 3.5%) !default;
+$navbar-link-visited-bg: darken($globalBlue, 3.5%) !default;
+$navbar-link-focus: darken($globalBlue, 2.5%) !default;
+$navbar-link-focus-bg: darken($globalBlue, 3.5%) !default;
+
+//Toggle
+$navbar-toggle-hover-bg: #ddd !default;
+$navbar-toggle-icon-bar-bg: #888 !default;
+$navbar-toggle-border-color: #ddd !default;
+
+
+//Z-index
+$zindex-navbarFixed : 1000;
+
+//font-size
+$navbar-font-size : 3rem;
+
+//Transitions
+$transition-fast: 0.3s;
+$transition-mid: 0.6s;
+$transition-slow: 0.7s;
+
+/** Navs **/
+
+$nav-link-padding: 10px 15px !default;
+$nav-link-hover-bg: lighter($globalBlue, 6.5%) !default;
+
+
 /* ========================*/
 /* === 1.2 Font Family === */
 /* ========================*/

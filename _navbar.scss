@@ -1,0 +1,119 @@
+
+/* ==================== */
+/* | NAVBAR
+/* ==================== */
+
+
+//Nav Container
+.gNav{
+    position:relative;
+    min-height: $navbar-height;
+    margin-bottom: $navbar-margin-bottom;
+    border: $navbar-border;
+    @include clearfix;
+    
+    
+    @media (min-width: $grid-float-breakpoint){
+        border-radius: $navbar-border-radius;
+    }
+}
+
+//Nav Header
+.gNavHeader{
+    @include clearfix;
+    @media(min-width: $grid-float-breakpoint){
+        float:left;
+    }
+}
+
+
+//Navbar Collapse
+.gNavCollapse{
+    overflow-x: visible;
+    padding-right: $navbar-padding-horizontal;
+    padding-left: $navbar-padding-horizontal;
+    border-top: $navbar-border;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+    @include clearfix;
+    -webkit-overflo-scrolling: touch;
+    
+    &.in{
+        overflow-y: auto;
+    }
+    
+    @media(min-width: $grid-float-breakpoint){
+        width:auto;
+        border-top: $navbar-border;
+        box-shadow: none;
+        
+        &.collapse{
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+        }
+        &.in{
+            overflow-y: visible;
+        }
+        .gNavFix{
+            padding-left: 0;
+            padding-right:0;
+        }
+        
+    }
+    
+}
+
+.gNavFix, .gNavCollapse{
+    max-height: $navbar-collapse-max-height;
+    @media (max-device-width: $screen-xs-min) and (orientation: landscape){
+        max-height: 200px;
+    }
+}
+
+.gContainer, gContainer-fluid{
+    > .gNavHeader,
+    > .gNavCollapse{
+        margin-right: -$navbar-padding-horizontal;
+        margin-left: -$navbar-padding-horizontal;
+        
+        @media(min-width: $grid-float-breakpoint){
+            margin-right:0;
+            margin-left:0;
+        }
+    }
+}
+
+.gNavFix{
+    position:fixed;
+    right:0;
+    left:0;
+    top:0;
+    border: $navbar-border;
+    z-index: $zindex-navbarFixed;
+    @media (min-width: $grid-float-breakpoint){
+        border-radius: $navbar-border-radius;
+    }
+}
+
+.gNavBrand{
+    float:left;
+    padding: $navbar-padding-vertical $navbar-padding-horizontal;
+    font-size: $navbar-font-size;
+    line-height: $line-height-computed;
+    height: $navbar-height;
+    
+    &:hover, &:focus{
+        text-decoration:none;
+    }
+    
+    > img{
+        display:block;
+    }
+    
+    @media(min-width: $grid-float-breakpoint){
+        .gNav > .gContainer &, .gNav > .gContainerFluid & {
+            margin-left: -$navbar-padding-horizontal;
+        }
+    }
+}
