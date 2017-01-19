@@ -1,9 +1,9 @@
 /* ======================
 |   - TABLE OF CONTENTS -
 |========================
-|   
+|
 |   VARIABLES
-| 
+|
 |   1.0 - Branding
 |       1.1 - Colors
 |       1.2 - Font Family
@@ -86,12 +86,12 @@ $navar-collapse-max-height: 300px !default;
 
 //Shrink
 $navbar-shrink-margin:0 0 0 5px !default;
-$navbar-shrink-logo: 9px 0 0 0 !default;
-$navbar-shrink-logo-width: 38px !default;
+$navbar-shrink-logo: 15px 0 0 0 !default;
+$navbar-shrink-logo-width: 25px !default;
 $navbar-shring-height: 65px;
 
 //Colors
-$navbar-background: $globalBlue-mid !default;
+$navbar-background: $globalBlue !default;
 $navbar-border: darken($globalBlue, 6.5%) !default;
 $navbar-color: $softWhite;
 
@@ -99,7 +99,7 @@ $navbar-color: $softWhite;
 $navbar-logo-width: 180px !default;
 $navbar-logo-height: 48px !default;
 $navbar-logo-margin: 33px 0 0 10px !default;
-$navbar-logo-background: url('../imgs/logos/logo_full@1x.svg') no-repeat !default;
+$navbar-logo-background: url('../imgs/logos/logo_full_cw@2x.svg') no-repeat !default;
 
 $navbar-logo-icon-background: url('../imgs/logos/logo_icon@1x.svg') no-repeat;
 
@@ -227,7 +227,7 @@ $grid-pipe-width: 30px;
 $grid-float-breakpoint: $screen-sm-min;
 
 //Grid max breakpoint
-$grid-float-breakpoint-max: ($grid-float-breakpoint - 1); 
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
 
 
 /* ============================*/
@@ -248,7 +248,7 @@ $gContainer-md: $gContainer-desktop;
 
 //Large Screens
 $gContainer-large-desktop: (1140px + $grid-pipe-width);
-    
+
 //Large screens and up
 $gContainer-lg: $gContainer-large-desktop;
 

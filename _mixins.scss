@@ -405,6 +405,42 @@
 /* |   7.0 Triangles == */
 /* ==================== */
 
+//@include diagonal(top, left, 450px, $globalBlue);
+@mixin diagonal($where, $lift, $push, $size1, $size2, $color){
+    
+    &:#{$where}{
+        content:'';
+        border-style: solid;
+        position: absolute;
+        @if($lift == 'top' and $push == 'right'){
+            top:0;
+            right:0;
+            border-width: 0 $size1 $size2 0;
+            border-color: transparent $color transparent transparent;
+        }
+        @if($lift == 'top' and $push == 'left')
+        {
+            top:0;
+            left:0;
+            border-width: 0 0 $size1 $size2;
+            border-color: transparent transparent transparent $color;
+        }
+        @if($lift == 'bottom' and $push == 'right')
+        {
+            bottom:0;
+            right:0;
+            border-width: 0 0 $size1 $size2;
+            border-color: transparent transparent $color transparent;
+        }
+        @if($lift == 'bottom' and $push == 'left')
+        {
+            bottom:0;
+            left:0;
+            border-width: 0 $size1 $size2 0;
+            border-color: transparent transparent $color transparent;
+        }
+    }
+}
 
 @mixin triangle($size, $triangle_top, $triangle_bottom, $triangle_left, $triangle_right , $bottomColor){
     
