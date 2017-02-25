@@ -405,7 +405,7 @@
 /* |   7.0 Triangles == */
 /* ==================== */
 
-//@include diagonal(top, left, 450px, $globalBlue);
+//@include diagonal(before, top, left, 450px, $globalBlue);
 @mixin diagonal($where, $lift, $push, $size1, $size2, $color){
     
     &:#{$where}{
@@ -525,4 +525,17 @@
   margin: (($line-height-computed / 2) - 1) 0;
   overflow: hidden;
   background-color: $color;
+
+
+}
+
+/* ========================= */
+/* |  9.0 Input Placeholder |*/
+/* ========================= */
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
 }

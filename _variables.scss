@@ -29,146 +29,164 @@
 /* ===================*/
 
 //Full White
-$white :#fff;
+$white :						#fff;
 //Soft White
-$softWhite:#dbd9d9;
+$softWhite:						#dbd9d9;
 
 //Transparent
-$transparent: rgba(255, 255, 255, 0);
+$transparent: 					rgba(255, 255, 255, 0);
 //Light Transparent
-$lightTransparent: rgba(255, 255, 255, 0.1);
+$lightTransparent: 				rgba(255, 255, 255, 0.1);
 //Dark Transparent
-$darkTransparent: rgba(0, 0, 0, 0.1);
-$darkTransparent-md: rgba(0,0,0,0.5);
+$darkTransparent: 				rgba(0, 0, 0, 0.1);
+$darkTransparent-md: 			rgba(0,0,0,0.5);
 
 //Bright Navy Blue #081f75
-$brightNavy:rgba(8, 31, 117, 1);
-$brightNavy-mid:rgba(8, 31, 117, 0.75);
+$brightNavy:					rgba(8, 31, 117, 1);
+$brightNavy-mid:				rgba(8, 31, 117, 0.75);
 
 //Indigo Blue #003ecb
-$indigo:rgba(0, 62, 203, 1);
+$indigo:						rgba(0, 62, 203, 1);
 
 //Global Blue #0068ff
-$globalBlue:rgba(0, 104, 255, 1);
-$globalBlue-mid: rgba(0, 104, 255, 0.85);
+$globalBlue:					rgba(0, 104, 255, 1);
+$globalBlue-mid: 				rgba(0, 104, 255, 0.85);
 //Bright Sunrise Yellow #fff100
-$brightSunrise:rgba(255, 241, 0, 1);
+$brightSunrise:					rgba(255, 241, 0, 1);
 
 
 //Full Black
-$black:#000;
+$black:							#000;
 //Deep Charcoal
-$deepCharcoal:#2b2b2b;
+$deepCharcoal:					#2b2b2b;
 //LightGray
-$lightGray:#494949;
+$lightGray:						#494949;
 
 /*** Alerts ***/
 
 //Success Green
-$success :#61d835;
+$success :						#61d835;
 
 //Warning Orange/Yelow
-$warning :#ffb000;
+$warning :						#ffb000;
 
 //Danger Red / Magenta
-$alert :#f7345e;
+$alert:							#f7345e;
 
 
 /** Navbar **/
 
 //Defaults
-$navbar-height: 65px !default;
-$navbar-border: 0px !default;
-$navbar-border-radius: 0px !default;
-$navbar-margin-bottom: 0px;
-$navbar-padding-horizontal: floor(($grid-pipe-width / 2)) !default;
-$navar-collapse-max-height: 300px !default;
+$navbar-height: 				60px !default;
+$navbar-border: 				0px !default;
+$navbar-border-radius: 			0px !default;
+$navbar-margin-bottom: 			0px;
+//$navbar-padding-horizontal: 	floor(($grid-pipe-width / 2)) !default;
+$navar-collapse-max-height: 	300px !default;
 
 //Shrink
-$navbar-shrink-margin:0 0 0 5px !default;
-$navbar-shrink-logo: 15px 0 0 0 !default;
-$navbar-shrink-logo-width: 25px !default;
-$navbar-shring-height: 65px;
+$navbar-shrink-margin:			0 0 0 5px !default;
+$navbar-shrink-logo: 			15px 0 0 0 !default;
+$navbar-shrink-logo-width: 		25px !default;
+$navbar-shring-height: 			65px;
 
 //Colors
-$navbar-background: $globalBlue !default;
-$navbar-border: darken($globalBlue, 6.5%) !default;
-$navbar-color: $softWhite;
+$navbar-background: 			$deepCharcoal !default;
+$navbar-border: 				darken($globalBlue, 6.5%) !default;
+$navbar-color: 					$softWhite;
 
 //Logo
-$navbar-logo-width: 180px !default;
-$navbar-logo-height: 48px !default;
-$navbar-logo-margin: 33px 0 0 10px !default;
-$navbar-logo-background: url('../imgs/logos/logo_full_cw@2x.svg') no-repeat !default;
+$navbar-logo-width: 			180px !default;
+$navbar-logo-height: 			48px !default;
+$navbar-logo-margin: 			33px 0 0 10px !default;
+$navbar-logo-background: 		url('../imgs/logos/logo_full_cw@2x.svg') no-repeat !default;
 
-$navbar-logo-icon-background: url('../imgs/logos/logo_icon@1x.svg') no-repeat;
+$navbar-logo-icon-background: 	url('../imgs/logos/logo_icon@1x.svg') no-repeat;
 
 
 //Links
-$navbar-link-color: $softWhite;
-$navbar-link-hover: darken($globalBlue, 1.5%) !default;
-$navbar-link-active: darken($globalBlue, 3.5%) !default;
-$navbar-link-active-bg: darken($globalBlue, 6.5%) !default;
-$navbar-link-visited: darken($globalBlue, 3.5%) !default;
-$navbar-link-visited-bg: darken($globalBlue, 3.5%) !default;
-$navbar-link-focus: darken($globalBlue, 2.5%) !default;
-$navbar-link-focus-bg: darken($globalBlue, 3.5%) !default;
+$navbar-link-color: 			$softWhite;
+$navbar-link-hover: 			darken($globalBlue, 1.5%) !default;
+$navbar-link-active: 			darken($globalBlue, 3.5%) !default;
+$navbar-link-active-bg: 		darken($globalBlue, 6.5%) !default;
+$navbar-link-visited: 			darken($globalBlue, 3.5%) !default;
+$navbar-link-visited-bg: 		darken($globalBlue, 3.5%) !default;
+$navbar-link-focus: 			darken($globalBlue, 2.5%) !default;
+$navbar-link-focus-bg: 			darken($globalBlue, 3.5%) !default;
 
 //Toggle
-$navbar-toggle-hover-bg: #ddd !default;
-$navbar-toggle-icon-bar-bg: #888 !default;
-$navbar-toggle-border-color: #ddd !default;
+$navbar-toggle-hover-bg: 		#ddd !default;
+$navbar-toggle-icon-bar-bg: 	#888 !default;
+$navbar-toggle-border-color: 	#ddd !default;
 
 
 //Z-index
-$zindex-navbarFixed : 1000;
+$zindex-navbarFixed : 			1000;
 
 //font-size
-$navbar-font-size : 3rem;
+$navbar-font-size : 			3rem;
 
 //Transitions
-$transition-fast: 0.3s;
-$transition-mid: 0.6s;
-$transition-slow: 0.7s;
+$transition-fast: 				0.3s;
+$transition-mid: 				0.6s;
+$transition-slow: 				0.7s;
 
 /** Navs **/
 
-$nav-link-padding: 10px 15px !default;
-$nav-link-hover-bg: lighter($globalBlue, 6.5%) !default;
+$nav-link-padding: 				10px 15px !default;
+$nav-link-hover-bg: 			lighter($globalBlue, 6.5%) !default;
+
+/** Left Side Bar **/
+$left-sidebar-logo-width:			30px !default;
+$left-sidebar-width:				80px !default;
+$left-sidebar-height:				100% !default;
+$left-sidebar-padding-top:			10px !default;
+
+/** Right Side Bar (Chat) **/
+$right-sidebar-width:				250px !default;
+$right-sidebar-height:				100% !default; 
+$right-sidebar-background:			$deepCharcoal;
+
+
+//Side Tools
+$side-tools-width:					250px !default;
+$side-tools-background:				rgb(50,50,50) !default;
+$side-tools-height:					100%;
+
 
 
 /* ========================*/
 /* === 1.2 Font Family === */
 /* ========================*/
 
-$pathToFonts: './app/assets/fonts/';
+$pathToFonts: 					'../fonts/';
 
 //Font-awesome icons
-$awesomePath: "../fonts/fontAwesome" !default;
+$awesomePath: 					"../fonts/fontAwesome" !default;
 
 /*** CANARO ***/
 
 //Regular
-$canaroRegular: 'Canaro Regular';
+$canaroRegular: 				'Canaro Regular';
 
 //Light
-$canaroLight: 'Canaro Light';
+$canaroLight: 					'Canaro Light';
 
 //Book
-$canaroBook: 'Canaro Book';
+$canaroBook: 					'Canaro Book';
 
 //Semibold
-$canaroSemiBold: 'Canaro SemiBold';
+$canaroSemiBold: 				'Canaro SemiBold';
 
 //Bold
-$canaroBold:'Canaro Bold';
+$canaroBold:					'Canaro Bold';
 
 /*** GEOGROTESQUE ***/
 
 //Regular
-$geoGrotesqueRegular:'GeoGrotesque Regular';
+$geoGrotesqueRegular:			'GeoGrotesque Regular';
 //SemiBold
-$geoGrotesqueSemiBold:'GeoGrotesque SemiBold';
+$geoGrotesqueSemiBold:			'GeoGrotesque SemiBold';
 
 
 /*====================
