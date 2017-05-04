@@ -149,7 +149,7 @@ $right-sidebar-background:			$deepCharcoal;
 
 
 //Side Tools
-$side-tools-width:					250px !default;
+$side-tools-width:					210px !default;
 $side-tools-background:				rgb(50,50,50) !default;
 $side-tools-height:					100%;
 
@@ -192,6 +192,21 @@ $geoGrotesqueSemiBold:			'GeoGrotesque SemiBold';
 /*====================
 |   2.0 LAYOUT
 ====================*/
+
+
+/*
+*
+*	@Backgrounds
+*
+*/
+$defaultBackground : url('../images/bg/dashboard_bg.png');
+$wikitarifaBackgorund: url('../images/bg/wiki_bg.png');
+$gContactBackground : url('../images/bg/g_contact_bg.png');
+$gOpsBackground: url('../images/bg/dashboard_bg.png');
+$gLegalBackground: url('../images/bg/g_legal_bg.png');
+$gBankBackground:url('../images/bg/g_bank_bg.png');
+$gReportsBackground:url('../images/bg/g_reports_bg.png');
+
 
 /* =======================*/
 /* === 2.1 BreakPoints ===*/
