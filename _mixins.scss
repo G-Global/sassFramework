@@ -539,3 +539,18 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}  
 }
+
+/* =============================== */
+/* ' 10.0 Fixed background       ' */
+/* ' $color:       #0068ff       ' */
+/* ' $image: dashboard_bg-min.png' */
+/* =============================== */
+
+@mixin fixed-bg($color, $image) {
+    background: $color;
+    background-image: url($image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
