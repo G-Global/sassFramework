@@ -83,7 +83,7 @@ $alert:							#f7345e;
 /** Navbar **/
 
 //Defaults
-$navbar-height: 				60px !default;
+$navbar-height: 				50px !default;
 $navbar-border: 				0px !default;
 $navbar-border-radius: 			0px !default;
 $navbar-margin-bottom: 			0px;
@@ -97,7 +97,7 @@ $navbar-shrink-logo-width: 		25px !default;
 $navbar-shring-height: 			65px;
 
 //Colors
-$navbar-background: 			$deepCharcoal !default;
+$navbar-background: 			transparent !default;
 $navbar-border: 				darken($globalBlue, 6.5%) !default;
 $navbar-color: 					$softWhite;
 
