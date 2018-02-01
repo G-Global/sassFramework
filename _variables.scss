@@ -47,17 +47,17 @@ $lightTransparent: 				rgba(255, 255, 255, 0.1);
 $darkTransparent: 				rgba(0, 0, 0, 0.1);
 $darkTransparent-md: 			rgba(0,0,0,0.5);
 
-//Bright Navy Blue #081f75
+//Bright Navy Blue 				#081f75
 $brightNavy:					rgba(8, 31, 117, 1);
 $brightNavy-mid:				rgba(8, 31, 117, 0.75);
 
-//Indigo Blue #003ecb
+//Indigo Blue 					#003ecb
 $indigo:						rgba(0, 62, 203, 1);
 
-//Global Blue #0068ff
+//Global Blue 					#0068ff
 $globalBlue:					rgba(0, 104, 255, 1);
 $globalBlue-mid: 				rgba(0, 104, 255, 0.85);
-//Bright Sunrise Yellow #fff100
+//Bright Sunrise Yellow 		#fff100
 $brightSunrise:					rgba(255, 241, 0, 1);
 
 
@@ -142,11 +142,64 @@ $transition-slow: 				0.7s;
 $nav-link-padding: 				10px 15px !default;
 $nav-link-hover-bg: 			lighter($globalBlue, 6.5%) !default;
 
-/** Left Side Bar **/
-$left-sidebar-logo-width:			30px !default;
-$left-sidebar-width:				150px !default;
-$left-sidebar-height:				100% !default;
-$left-sidebar-padding-top:			10px !default;
+/*
+*
+*	@Left SideBar
+*
+*/
+$left-sidebar-logo-width:					30px !default;
+$left-sidebar-width:						150px !default;
+$left-sidebar-height:						100% !default;
+$left-sidebar-padding-top:					10px !default;
+
+/*Sidebar*/
+$left-sidebar-background-color:								$globalBlue;
+$left-sidebar-title-text-color:								#fafafa;
+
+/*List Elements*/
+//Static
+$left-sidebar-list-item-text-color:							#fafafa;
+$left-sidebar-list-time-background:							$deepCharcoal;
+$left-sidebar-list-item-border-color:					rgba(255,255,255,0.01);
+//Hover
+$left-sidebar-list-item-hover-background:					rgba(255,255,255,0.05);
+$left-sidebar-list-item-hover-text-color:					$globalBlue;
+//Selected
+$left-sidebar-list-item-selected-text-color:				#b8c6d6;
+$left-sidebar-list-item-selected-background:				rgba(255,255,255,0.05);
+$left-sidebar-list-item-selected-border-color:				$globalBlue;
+
+/*List Icons*/
+//Static
+$left-sidebar-list-item-icon-color:							#fafafa;
+$left-sidebar-list-item-icon-background:					#999;
+//Hover
+$left-sidebar-list-item-icon-hover-background:				#fafafa;
+$left-sidebar-list-item-icon-hover-color:					$globalBlue;
+//Selected
+$left-sidebar-list-item-icon-selected-color: 				$globalBlue;
+$left-sidebar-list-item-icon-selected-background: 			#fafafa;
+
+/*List SubItems*/
+//Static
+$left-sidebar-sub-list-item-text-color:						#b8c6d6;
+$left-sidebar-sub-list-item-background:						$indigo;
+//Hover
+$left-sidebar-sub-list-item-hover-text-color:				#fafafa;
+$left-sidebar-sub-list-item-hover-background:				red;
+//Selected
+$left-sidebar-sub-list-item-selected-color:					rgba(255,255,255,0.05);
+$left-sidebar-sub-list-item-selected-background: 			red;
+/*List SubItems Icons*/
+$left-sidebar-sub-list-item-icon-color:						$globalBlue;
+$left-sidebar-sub-list-item-icon-background:				#999;
+//Hover
+$left-sidebar-sub-list-item-icon-hover-background:			#fafafa;
+$left-sidebar-sub-list-item-icon-hover-color:				$globalBlue;
+//Selected
+$left-sidebar-sub-list-item-icon-selected-color: 			$globalBlue;
+$left-sidebar-sub-list-item-icon-selected-background: 		transparent;
+
 
 /** Right Side Bar (Chat) **/
 $right-sidebar-width:				260px !default;
